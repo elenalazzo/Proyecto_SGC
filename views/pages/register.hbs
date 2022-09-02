@@ -1,0 +1,41 @@
+<style>
+    body {
+        background-color: #929AAB;
+    }
+</style>
+<br>
+<br>
+<center><h1 style="font-family:copperplate; color:#EEEEEE" class="mb-4">REGISTER</h1></center>
+
+<div class="row justify-content-md-center">
+    <div class="col-md-4">
+        {{#if message}}
+            <div class="alert {{messageClass}}">
+                {{message}}
+            </div>
+        {{/if}}
+        <form action="/register" method="POST">
+            <div class="form-group" style="font-family:courier new">
+                Nombre de Usuario
+                <input type="text" name="fullName" id="" class="form-control" placeholder="Nombre de Usuario" style="background-color:#EEEEEE; border-color:#929AAB; color:Black" required>
+            </div>
+            <br>
+            <div class="form-group" style="font-family:courier new">
+                Email
+                <input type="text" name="email" id="" class="form-control" placeholder="nombre@example.com" style="background-color:#EEEEEE; border-color:#929AAB; color:Black" required>
+            </div>
+            <br>
+            <div class="form-group" style="font-family:courier new">
+                Password
+                <input type="password" name="password" id="" class="form-control" placeholder="****" style="background-color:#EEEEEE; border-color:#929AAB; color:Black" required>
+            </div>
+            <br>
+            <div class="form-group" style="font-family:courier new">
+                Confirm Password
+                <input type="password" name="confirmPassword" id="" class="form-control" placeholder="****" style="background-color:#EEEEEE; border-color:#929AAB; color:Black" required>
+            </div>
+            <br>
+            <center><button type="submit" class="btn" style="font-family:optima; background-color:#EEEEEE; border-color:#929AAB; color:Black">Register</button></center>
+        </form>
+    </div>
+</div>
