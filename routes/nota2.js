@@ -35,7 +35,7 @@ function newNota2(req, res) {
     nota2.NotaAI = req.body.NotaAI;
     nota2.NotaEX = req.body.NotaEX;
     nota2.Prom = req.body.Prom;
-    nota2.Prom = ` ${(Math.round((nota2.NotaAC + nota2.NotaAI + nota2.NotaEX)/3))}`;
+    nota2.Prom = ` ${((nota2.NotaAC + nota2.NotaAI + nota2.NotaEX)/3).toFixed(2)}`;
     nota2.save((err) => {
         if(!err){
             res.redirect("notas2/listNotas2");
