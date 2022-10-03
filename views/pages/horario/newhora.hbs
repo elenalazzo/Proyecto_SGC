@@ -1,65 +1,68 @@
 <style>
     body {
-        background-color: #F3F5F9;
+        background-color: #0D1E96;
+    }
+    div.content{
+        height: 800px;
+        margin-top: 30px;
+        margin: 30px;
+        background-color: #F5F6FF ;
     }
     .contenedor-icono svg{
     width: 50px;
     height: 50px;
-    color:#393E46;
+    color:#FF6D00;
+    }
+    .contenedor-icono1 svg{
+    width: 50px;
+    height: 50px;
+    color:#0D1E96;
     }
 </style>
-
-<div class="contenedor-icono">
-    <a type="button"  href="/horario/listhora" style="background:#393E46; margin-top:20px; margin-left:20px;font-family:courier new; color:#F3F5F9; border-radius:50px;" class="btn btn-default btn-circle btn-xl"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left-circle-fill" viewBox="0 0 16 16">
+<div  class="content contenedor-icono">
+    <a type="button"  href="/horario/listhora" style=" margin-top:20px; margin-left:20px;font-family:courier new;border-radius:30px" class="btn btn-default btn-circle btn-xl">
+    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-arrow-left-circle-fill" viewBox="0 0 16 16">
     <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z"/>
-    </svg> Ver Lista</a>
-</div>
+    </svg></a>
+    
 
-<center><h1 style="font-family:copperplate; color:#393E46; margin-top: 50px;" class="mb-4">{{viewTitle}}</h1></center>
-
-<div class="row justify-content-md-center" style="font-size:larger;">
- <div class="col-md-4" style="margin-top: ;">
+  <center><h1 style="font-family:copperplate; color:#0D1E96; margin-bottom:5%; " class="mb-4">NUEVO HORARIO</h1></center>
+  <div class="row justify-content-md-center" style="font-size:larger;">
+  <div class="col-md-4" style="margin-top: ;">
     <form action="/horario" method="post">
       <input type="hidden" name="_id" value="{{horario._id}}">
-
-       <div class="form-group" style="font-family:courier new">
+       <div class="form-group" style="font-family:courier new; color:#0D1E96">
          <strong>Hora</strong> 
-         <input type="text" name="Hora" id="Hora" class="form-control" placeholder="7:00-8:50" style="background-color:#F3F5F9; border-color:#F3F5F9; color:#000" value="{{horario.Hora}}" required>
+         <input type="text" name="Hora" id="Hora" class="form-control" placeholder="7:00-8:50" style="background-color:#c6d8ff; border-color:#F3F5F9; color:#0D1E96" value="{{horario.Hora}}" required>
        </div>
-
        <br>
-       <div class="form-group" style="font-family:courier new">
-         <strong>Lunes</strong> 
-         <input type="text" name="Lunes" id="Lunes" class="form-control" placeholder="Ingrese materia a impartir" style="background-color:#F3F5F9; border-color:#F3F5F9; color:#000" value="{{horario.Lunes}}" required>
+       <div class="form-group" style="font-family:courier new; color:#0D1E96">
+          <strong>Lunes</strong> 
+         <input type="text" name="Lunes" id="Lunes" class="form-control" placeholder="Ingrese materia a impartir" style="background-color:#c6d8ff; border-color:#F3F5F9; color:#0D1E96" value="{{horario.Lunes}}" required>
        </div>
-
        <br>
-       <div class="form-group" style="font-family:courier new">
+       <div class="form-group" style="font-family:courier new; color:#0D1E96">
           <strong>Martes</strong> 
-         <input type="text" name="Martes" id="Martes" class="form-control" placeholder="Ingrese materia a impartir" style="background-color:#F3F5F9; border-color:#F3F5F9; color:#000"value="{{horario.Martes}}" required>
+         <input type="text" name="Martes" id="Martes"  class="form-control" placeholder="Ingrese materia a impartir"  style="background-color:#c6d8ff; border-color:#F3F5F9; color:#0D1E96" value="{{horario.Martes}}"  required>
        </div>
-
        <br>
-       <div class="form-group" style="font-family:courier new">
+       <div class="form-group" style="font-family:courier new; color:#0D1E96">
           <strong>Miercoles</strong> 
-         <input type="text" name="Miercoles" id="Miercoles" class="form-control" placeholder="Ingrese materia a impartir" style="background-color:#F3F5F9; border-color:#F3F5F9; color:#000"value="{{horario.Miercoles}}" required>
+         <input type="text" name="Miercoles" id="Miercoles" class="form-control" placeholder="Ingrese materia a impartir"  style="background-color:#c6d8ff; border-color:#F3F5F9; color:#0D1E96" value="{{horario.Miercoles}}"  required>
        </div>
-
-        <br>
-       <div class="form-group" style="font-family:courier new">
-          <strong>Jueves</strong> 
-         <input type="text" name="Jueves" id="Jueves" class="form-control" placeholder="Ingrese materia a impartir" style="background-color:#F3F5F9; border-color:#F3F5F9; color:#000"value="{{horario.Jueves}}" required>
-       </div>
-
-        <br>
-       <div class="form-group" style="font-family:courier new">
-          <strong>Viernes</strong> 
-         <input type="text" name="Viernes" id="Viernes" class="form-control" placeholder="Ingrese materia a impartir" style="background-color:#F3F5F9; border-color:#F3F5F9; color:#000"value="{{horario.Viernes}}" required>
-       </div>
-
        <br>
-     <center><strong><button type="submit" class="btn btn-lg" style="font-family:optima; background-color:#393E46; border-color:#393E46; color:#F3F5F9">Guardar</button></strong></center>
+       <div class="form-group" style="font-family:courier new; color:#0D1E96">
+          <strong>Jueves</strong> 
+         <input type="text" name="Jueves" id="Jueves"  class="form-control" placeholder="Ingrese materia a impartir"  style="background-color:#c6d8ff; border-color:#F3F5F9; color:#0D1E96" value="{{horario.Jueves}}" required>
+       </div>
+       <br>
+       <div class="form-group" style="font-family:courier new; color:#0D1E96">
+          <strong>Viernes</strong> 
+         <input type="text" name="Viernes" id="Viernes"  class="form-control" placeholder="Ingrese materia a impartir"  style="background-color:#c6d8ff; border-color:#F3F5F9; color:#0D1E96" value="{{horario.Viernes}}"required>
+       </div>
+       <br>
+     <center><strong><button type="submit" class="btn btn-lg" style="font-family:optima; background-color:#0D1E96;color:#ffffff">Guardar</button></strong></center>
     </form>
-  </div>
+</div>
 
 </div>

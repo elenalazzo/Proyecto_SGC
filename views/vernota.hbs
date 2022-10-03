@@ -1,9 +1,3 @@
-<style>
-    body {
-        background-color: #F3F5F9;
-    }
-</style>
-
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -18,162 +12,122 @@
   <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
   <link rel="stylesheet" href="styles.css">
   <style>
-    #sidebar {
-      width: 20%;
-      height: 100vh;
-      background: #393E46;
+ 
+
+     div.content{
+        height: 590px;
+        margin-top: 10px;
+        margin-right: 30px;
+        margin-left: 30px;
+        background-color:#F5F6FF;
+        
     }
   </style>
 </head>
 
 
-<body>
-   <div class="d-flex">
-    <div id="sidebar">
-      <div class="p-2">
-        <h5><a href="/home" style="font-family:optima; font-size:larger; color:#EEEEEE" class="navbar-brand text-center w-100 p-4 border-bottom">
-          
-          <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16">
-            <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/ </svg>
-          <i class="bi bi-menu-button-wide" style="color:#ffff;"></i>Menu
-        </a></h5>
-      </div>
-      <div id="sidebar-accordion" class="accordion">
-        <div class="list-group">
-        <h4><a href="/home" class="list-group-item list-group-item-action" 
-        style="font-family:copperplate; background-color:#393E46; border-color:#393E46; color:#ffff">
-        <svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-list-ul" viewBox="0 0 16 16">
-            <path fill-rule="evenodd" d="M5 11.5a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h9a.5.5 0 0 1 0 1h-9a.5.5 0 0 1-.5-.5zm-3 1a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2zm0 4a1 1 0 1 0 0-2 1 1 0 0 0 0 2z"/>
-        </svg>
-            <i  class=" bi bi-card-checklist mr-3" aria-hidden="true"></i>Inicio
-        </a></h4>
-        
-        <br>
+<body  style="background-color:#0D1E96;">
 
-        <div class="dropdown">
-          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Primer Ciclo
-          </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="/notas1/listNotas1" style="font-family:copperplate; background-color:#393E46; border-color:#393E46; color:#ffff">Primer Grado</a>
-            <a class="dropdown-item" href="/notas2/listNotas2" style="font-family:copperplate; background-color:#393E46; border-color:#393E46; color:#ffff">Segundo Grado</a>
-            <a class="dropdown-item" href="/notas3/listNotas3" style="font-family:copperplate; background-color:#393E46; border-color:#393E46; color:#ffff">Tercer Graco</a>
-          </div>
+  
+<div class="container-fluid">
+    <div class="row flex-nowrap">
+        <div class="col-auto col-md-3 col-xl-2 px-sm-2 px-0" style="background-color:#F5F6FF">
+            <div class="d-flex flex-column align-items-center align-items-sm-start px-3 pt-2 text-white min-vh-100">
+                <a href="#" class="d-flex align-items-center  pb-3 mb-md-0 me-md-auto p-4 border-bottom  text-decoration-none" style="margin-top:20px;">
+                  <svg xmlns="http://www.w3.org/2000/svg" width="29" height="29" fill="currentColor" class="bi bi-list" viewBox="0 0 16 16" style="color:#FF6D00;">
+                    <path fill-rule="evenodd" d="M2.5 12a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5zm0-4a.5.5 0 0 1 .5-.5h10a.5.5 0 0 1 0 1H3a.5.5 0 0 1-.5-.5z"/>
+                 </svg>
+                    <span class="fs-5 d-none d-sm-inline" style="color:#FF6D00;" >Menu</span>
+                </a>
+                 <ul class="nav nav-pills flex-column mb-sm-auto mb-0 align-items-center align-items-sm-start" id="menu">
+                    <li class="nav-item">
+                        <a href="/home" class="nav-link align-middle px-0">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="23" height="23" fill="currentColor" class="bi bi-house-door-fill" viewBox="0 0 16 16">
+                        <path d="M6.5 14.5v-3.505c0-.245.25-.495.5-.495h2c.25 0 .5.25.5.5v3.5a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5v-7a.5.5 0 0 0-.146-.354L13 5.793V2.5a.5.5 0 0 0-.5-.5h-1a.5.5 0 0 0-.5.5v1.293L8.354 1.146a.5.5 0 0 0-.708 0l-6 6A.5.5 0 0 0 1.5 7.5v7a.5.5 0 0 0 .5.5h4a.5.5 0 0 0 .5-.5z"/>
+                        </svg>
+
+                            <i class="fs-4 bi-house"></i> <span class="ms-1 d-none d-sm-inline">INICIO</span>
+                        </a>
+                    </li>
+                    <li>
+                        <a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-building" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M14.763.075A.5.5 0 0 1 15 .5v15a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5V14h-1v1.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V10a.5.5 0 0 1 .342-.474L6 7.64V4.5a.5.5 0 0 1 .276-.447l8-4a.5.5 0 0 1 .487.022zM6 8.694 1 10.36V15h5V8.694zM7 15h2v-1.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5V15h2V1.309l-7 3.5V15z"/>
+                            <path d="M2 11h1v1H2v-1zm2 0h1v1H4v-1zm-2 2h1v1H2v-1zm2 0h1v1H4v-1zm4-4h1v1H8V9zm2 0h1v1h-1V9zm-2 2h1v1H8v-1zm2 0h1v1h-1v-1zm2-2h1v1h-1V9zm0 2h1v1h-1v-1zM8 7h1v1H8V7zm2 0h1v1h-1V7zm2 0h1v1h-1V7zM8 5h1v1H8V5zm2 0h1v1h-1V5zm2 0h1v1h-1V5zm0-2h1v1h-1V3z"/>
+                            </svg>
+
+                            <i class="fs-4 bi-speedometer2"></i> <span class="ms-1 d-none d-sm-inline">PRIMER CICLO</span>
+                             </a>
+                        <ul class="collapse show nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
+                            <li class="w-100">
+                                <a href="/notas1/listNotas1" class="nav-link px-0"> <span class="d-none d-sm-inline"></span>  Primer grado</a>
+                            </li>
+                            <li>
+                                <a href="/notas2/listNotas2" class="nav-link px-0"> <span class="d-none d-sm-inline"></span>Segundo grado</a>
+                            </li>
+                            <li>
+                                <a href="/notas3/listNotas3" class="nav-link px-0"> <span class="d-none d-sm-inline"></span>Tercer grado</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#submenu2" data-bs-toggle="collapse" class="nav-link px-0 align-middle ">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-building" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M14.763.075A.5.5 0 0 1 15 .5v15a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5V14h-1v1.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V10a.5.5 0 0 1 .342-.474L6 7.64V4.5a.5.5 0 0 1 .276-.447l8-4a.5.5 0 0 1 .487.022zM6 8.694 1 10.36V15h5V8.694zM7 15h2v-1.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5V15h2V1.309l-7 3.5V15z"/>
+                            <path d="M2 11h1v1H2v-1zm2 0h1v1H4v-1zm-2 2h1v1H2v-1zm2 0h1v1H4v-1zm4-4h1v1H8V9zm2 0h1v1h-1V9zm-2 2h1v1H8v-1zm2 0h1v1h-1v-1zm2-2h1v1h-1V9zm0 2h1v1h-1v-1zM8 7h1v1H8V7zm2 0h1v1h-1V7zm2 0h1v1h-1V7zM8 5h1v1H8V5zm2 0h1v1h-1V5zm2 0h1v1h-1V5zm0-2h1v1h-1V3z"/>
+                            </svg>
+                            <i class="fs-4 bi-bootstrap"></i> <span class="ms-1 d-none d-sm-inline">SEGUNDO CICLO</span></a>
+                        <ul class="collapse nav flex-column ms-1" id="submenu2" data-bs-parent="#menu">
+                            <li class="w-100">
+                                <a href="/notas4/listNotas4" class="nav-link px-0"> <span class="d-none d-sm-inline"></span>Cuarto grado</a>
+                            </li>
+                            <li>
+                                <a href="/notas5/listNotas5" class="nav-link px-0"> <span class="d-none d-sm-inline"></span>Quinto grado</a>
+                            </li>
+                            <li>
+                                <a href="/notas6/listNotas6" class="nav-link px-0"> <span class="d-none d-sm-inline"></span>Sexto grado</a>
+                            </li>
+                        </ul>
+                    </li>
+                    <li>
+                        <a href="#submenu3" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
+                            <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-building" viewBox="0 0 16 16">
+                            <path fill-rule="evenodd" d="M14.763.075A.5.5 0 0 1 15 .5v15a.5.5 0 0 1-.5.5h-3a.5.5 0 0 1-.5-.5V14h-1v1.5a.5.5 0 0 1-.5.5h-9a.5.5 0 0 1-.5-.5V10a.5.5 0 0 1 .342-.474L6 7.64V4.5a.5.5 0 0 1 .276-.447l8-4a.5.5 0 0 1 .487.022zM6 8.694 1 10.36V15h5V8.694zM7 15h2v-1.5a.5.5 0 0 1 .5-.5h2a.5.5 0 0 1 .5.5V15h2V1.309l-7 3.5V15z"/>
+                            <path d="M2 11h1v1H2v-1zm2 0h1v1H4v-1zm-2 2h1v1H2v-1zm2 0h1v1H4v-1zm4-4h1v1H8V9zm2 0h1v1h-1V9zm-2 2h1v1H8v-1zm2 0h1v1h-1v-1zm2-2h1v1h-1V9zm0 2h1v1h-1v-1zM8 7h1v1H8V7zm2 0h1v1h-1V7zm2 0h1v1h-1V7zM8 5h1v1H8V5zm2 0h1v1h-1V5zm2 0h1v1h-1V5zm0-2h1v1h-1V3z"/>
+                            </svg>
+                            <i class="fs-4 bi-grid"></i> <span class="ms-1 d-none d-sm-inline">TERCER CICLO</span> </a>
+                            <ul class="collapse nav flex-column ms-1" id="submenu3" data-bs-parent="#menu">
+                            <li class="w-100">
+                                <a href="/notas7/listNotas7" class="nav-link px-0"> <span class="d-none d-sm-inline"></span> Septimo grado</a>
+                            </li>
+                            <li>
+                                <a href="/notas8/listNotas8" class="nav-link px-0"> <span class="d-none d-sm-inline"></span>Octavo grado</a>
+                            </li>
+                            <li>
+                                <a href="/notas9/listNotas9" class="nav-link px-0"> <span class="d-none d-sm-inline"></span>Noveno grado</a>
+                            </li>
+                        </ul>
+                    </li>
+                </ul>
+             </div>
+      
+            </div>
+            <div class="content col py-3">
+           <center><h3 style="color:#0D1E96; font-weight: bold">STUDENT'S GRADE CALCULATOR</h3></center> 
+           <center><h3 style="color:#FF6D00; margin-top:2%">NOTAS</h3></center>
+           <center><img style="margin-top: 4%;" height="250px" width="250px" class="grande" src="SGClogo.png"></center>
+            
+           <center> <img style="margin-top:5%;" src="https://i.pinimg.com/originals/2b/ce/47/2bce477bfeac589a7e757f68fd8428a1.jpg" height="120px" width="250px"/>
+            <img style="margin-top:5%;" src="https://i.pinimg.com/originals/2b/ce/47/2bce477bfeac589a7e757f68fd8428a1.jpg" height="120px" width="250px"/>
+            <img style="margin-top:5%;" src="https://i.pinimg.com/originals/2b/ce/47/2bce477bfeac589a7e757f68fd8428a1.jpg" height="120px" width="250px"/>
+           </center>
+                       
         </div>
-        </br>
-        <br>
 
-        <div class="dropdown">
-          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Segundo Ciclo
-          </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="/notas4/listNotas4" style="font-family:copperplate; background-color:#393E46; border-color:#393E46; color:#ffff">Cuarto Grado</a>
-            <a class="dropdown-item" href="/notas5/listNotas5" style="font-family:copperplate; background-color:#393E46; border-color:#393E46; color:#ffff">Quinto Grado</a>
-            <a class="dropdown-item" href="/notas6/listNotas6" style="font-family:copperplate; background-color:#393E46; border-color:#393E46; color:#ffff">Sexto Graco</a>
-          </div>
         </div>
-        </br>
 
-        <br>
-
-        <div class="dropdown">
-          <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Tercer Ciclo
-          </button>
-          <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-            <a class="dropdown-item" href="/notas7/listNotas7" style="font-family:copperplate; background-color:#393E46; border-color:#393E46; color:#ffff">Septimo Grado</a>
-            <a class="dropdown-item" href="/notas8/listNotas8" style="font-family:copperplate; background-color:#393E46; border-color:#393E46; color:#ffff">Octavo Grado</a>
-            <a class="dropdown-item" href="/notas9/listNotas9" style="font-family:copperplate; background-color:#393E46; border-color:#393E46; color:#ffff">Noveno Graco</a>
-          </div>
-        </div>
-        </br>
-
-        <!--
-        <h4><a href="/notas1/listNotas1" class="list-group-item list-group-item-action" 
-            style="font-family:copperplate; background-color:#393E46; border-color:#393E46; color:#ffff">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-layout-text-sidebar-reverse" viewBox="0 0 16 16">
-              <path d="M12.5 3a.5.5 0 0 1 0 1h-5a.5.5 0 0 1 0-1h5zm0 3a.5.5 0 0 1 0 1h-5a.5.5 0 0 1 0-1h5zm.5 3.5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h5a.5.5 0 0 0 .5-.5zm-.5 2.5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1 0-1h5z"/>
-              <path d="M16 2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2zM4 1v14H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h2zm1 0h9a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H5V1z"/>
-            </svg>
-            <i  class="bi bi-book mr-3" aria-hidden="true"></i>Primer Grado
-          </a></h4>
-          <h4><a href="/notas2/listNotas2" class="list-group-item list-group-item-action" 
-            style="font-family:copperplate; background-color:#393E46; border-color:#393E46; color:#ffff">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-layout-text-sidebar-reverse" viewBox="0 0 16 16">
-              <path d="M12.5 3a.5.5 0 0 1 0 1h-5a.5.5 0 0 1 0-1h5zm0 3a.5.5 0 0 1 0 1h-5a.5.5 0 0 1 0-1h5zm.5 3.5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h5a.5.5 0 0 0 .5-.5zm-.5 2.5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1 0-1h5z"/>
-              <path d="M16 2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2zM4 1v14H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h2zm1 0h9a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H5V1z"/>
-            </svg>
-            <i  class="bi bi-book mr-3" aria-hidden="true"></i>Segundo Grado
-          </a></h4>
-          <h4><a href="/notas3/listNotas3" class="list-group-item list-group-item-action" 
-            style="font-family:copperplate; background-color:#393E46; border-color:#393E46; color:#ffff">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-layout-text-sidebar-reverse" viewBox="0 0 16 16">
-              <path d="M12.5 3a.5.5 0 0 1 0 1h-5a.5.5 0 0 1 0-1h5zm0 3a.5.5 0 0 1 0 1h-5a.5.5 0 0 1 0-1h5zm.5 3.5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h5a.5.5 0 0 0 .5-.5zm-.5 2.5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1 0-1h5z"/>
-              <path d="M16 2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2zM4 1v14H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h2zm1 0h9a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H5V1z"/>
-            </svg>
-            <i  class="bi bi-book mr-3" aria-hidden="true"></i>Tercer Grado
-          </a></h4>
-          <h4><a href="/notas4/listNotas4" class="list-group-item list-group-item-action" 
-            style="font-family:copperplate; background-color:#393E46; border-color:#393E46; color:#ffff">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-layout-text-sidebar-reverse" viewBox="0 0 16 16">
-              <path d="M12.5 3a.5.5 0 0 1 0 1h-5a.5.5 0 0 1 0-1h5zm0 3a.5.5 0 0 1 0 1h-5a.5.5 0 0 1 0-1h5zm.5 3.5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h5a.5.5 0 0 0 .5-.5zm-.5 2.5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1 0-1h5z"/>
-              <path d="M16 2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2zM4 1v14H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h2zm1 0h9a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H5V1z"/>
-            </svg>
-            <i  class="bi bi-book mr-3" aria-hidden="true"></i>Cuarto Grado
-          </a></h4>
-         <h4><a href="/notas5/listNotas5" class="list-group-item list-group-item-action" 
-            style="font-family:copperplate; background-color:#393E46; border-color:#393E46; color:#ffff">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-layout-text-sidebar-reverse" viewBox="0 0 16 16">
-              <path d="M12.5 3a.5.5 0 0 1 0 1h-5a.5.5 0 0 1 0-1h5zm0 3a.5.5 0 0 1 0 1h-5a.5.5 0 0 1 0-1h5zm.5 3.5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h5a.5.5 0 0 0 .5-.5zm-.5 2.5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1 0-1h5z"/>
-              <path d="M16 2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2zM4 1v14H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h2zm1 0h9a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H5V1z"/>
-            </svg>
-            <i  class="bi bi-book mr-3" aria-hidden="true"></i>Quinto Grado
-          </a></h4>
-          <h4><a href="/notas6/listNotas6" class="list-group-item list-group-item-action" 
-            style="font-family:copperplate; background-color:#393E46; border-color:#393E46; color:#ffff">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-layout-text-sidebar-reverse" viewBox="0 0 16 16">
-              <path d="M12.5 3a.5.5 0 0 1 0 1h-5a.5.5 0 0 1 0-1h5zm0 3a.5.5 0 0 1 0 1h-5a.5.5 0 0 1 0-1h5zm.5 3.5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h5a.5.5 0 0 0 .5-.5zm-.5 2.5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1 0-1h5z"/>
-              <path d="M16 2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2zM4 1v14H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h2zm1 0h9a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H5V1z"/>
-            </svg>
-            <i  class="bi bi-book mr-3" aria-hidden="true"></i>Sexto Grado
-          </a></h4>
-          <h4><a href="/notas7/listNotas7" class="list-group-item list-group-item-action" 
-            style="font-family:copperplate; background-color:#393E46; border-color:#393E46; color:#ffff">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-layout-text-sidebar-reverse" viewBox="0 0 16 16">
-              <path d="M12.5 3a.5.5 0 0 1 0 1h-5a.5.5 0 0 1 0-1h5zm0 3a.5.5 0 0 1 0 1h-5a.5.5 0 0 1 0-1h5zm.5 3.5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h5a.5.5 0 0 0 .5-.5zm-.5 2.5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1 0-1h5z"/>
-              <path d="M16 2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2zM4 1v14H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h2zm1 0h9a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H5V1z"/>
-            </svg>
-            <i  class="bi bi-book mr-3" aria-hidden="true"></i>Septimo Grado
-          </a></h4>
-          <h4><a href="/notas8/listNotas8" class="list-group-item list-group-item-action" 
-            style="font-family:copperplate; background-color:#393E46; border-color:#393E46; color:#ffff">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-layout-text-sidebar-reverse" viewBox="0 0 16 16">
-              <path d="M12.5 3a.5.5 0 0 1 0 1h-5a.5.5 0 0 1 0-1h5zm0 3a.5.5 0 0 1 0 1h-5a.5.5 0 0 1 0-1h5zm.5 3.5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h5a.5.5 0 0 0 .5-.5zm-.5 2.5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1 0-1h5z"/>
-              <path d="M16 2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2zM4 1v14H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h2zm1 0h9a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H5V1z"/>
-            </svg>
-            <i  class="bi bi-book mr-3" aria-hidden="true"></i>Octavo Grado
-          </a></h4>
-          <h4><a href="/notas9/listNotas9" class="list-group-item list-group-item-action" 
-            style="font-family:copperplate; background-color:#393E46; border-color:#393E46; color:#ffff">
-            <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-layout-text-sidebar-reverse" viewBox="0 0 16 16">
-              <path d="M12.5 3a.5.5 0 0 1 0 1h-5a.5.5 0 0 1 0-1h5zm0 3a.5.5 0 0 1 0 1h-5a.5.5 0 0 1 0-1h5zm.5 3.5a.5.5 0 0 0-.5-.5h-5a.5.5 0 0 0 0 1h5a.5.5 0 0 0 .5-.5zm-.5 2.5a.5.5 0 0 1 0 1h-5a.5.5 0 0 1 0-1h5z"/>
-              <path d="M16 2a2 2 0 0 0-2-2H2a2 2 0 0 0-2 2v12a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V2zM4 1v14H2a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1h2zm1 0h9a1 1 0 0 1 1 1v12a1 1 0 0 1-1 1H5V1z"/>
-            </svg>
-            <i  class="bi bi-book mr-3" aria-hidden="true"></i>Noveno Grado
-          </a></h4>
-        </div>
-      </div>
-    </div>        -->
-
-    <!--Aqui va toda la base que se encuentra a las dechecha-->
-    <div class="position-static">
-      <div class="position-absolute top-0 start-50 translate-middle">
-        <h1 style="font-family:copperplate;color:#393E46; margin-top:100px;margin-left:200px">VER CALIFICACIONES</h1>
-      </div>
-    </div>
-
-  </div>
+                
+                    
   <!-- Optional JavaScript -->
   <!-- jQuery first, then Popper.js, then Bootstrap JS -->
   <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"
