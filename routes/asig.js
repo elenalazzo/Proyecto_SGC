@@ -38,7 +38,7 @@ function newAsig(req, res){
 
       }
       else{
-          console.log("Erro, no se puedo mostrar")
+          console.log("Error, no se puedo mostrar")
       }
   });
 
