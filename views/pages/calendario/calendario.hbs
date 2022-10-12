@@ -1,746 +1,330 @@
-
-<html lang="en">
-<head>
-  <meta charset="utf-8">
-  <title>Calendario</title>
-  <meta name="description" content="Calendar">
-  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/css/bootstrap.min.css" integrity="sha384-zCbKRCUGaJDkqS1kPbPd7TveP5iyJE0EjAuZQTgFLD2ylzuqKfdKlfG/eSrtxUkn" crossorigin="anonymous">
-  <script src="https://cdn.jsdelivr.net/npm/jquery@3.5.1/dist/jquery.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@4.6.1/dist/js/bootstrap.bundle.min.js" integrity="sha384-fQybjgWLrvvRgtW6bFlB7jaZrFsaBXjsOMm/tB9LTS58ONXgqbR9W8oWht/amnpF" crossorigin="anonymous"></script>
-</head>
-
 <style>
-    /* Overall body and content */
-body {
-  height: 100%;
-  width: 100%;
-  margin: 0;
-  background: #F3E9DD;
-  font-family: Helvetica;
-}
-.content {
-  overflow: none;
-  max-width: 990px;
-  padding: 0px 0;
-  height: 900px;
-  position: relative;
-  margin: 20px auto;
-  background: #F3E9DD;
-  
-}
-
-.events-container {
-  overflow-y: scroll;
-  height: 175px;
-  float: left;
-  margin: 0px auto;
-  font: 13px Helvetica, Arial, sans-serif;
-  display: inline-block;
-  padding: 0 10px;
-  border-bottom-right-radius: 3px;
-  border-top-right-radius: 3px;
-}
-.events-container:after {
-  clear: both;
-}
-.event-card {
-
-  padding: 20px 0;
-  width: 100px;
-  height: 0px;
-  margin: 25px auto;
-  display: block;
-  background: #fff;
-  border-left: 150px solid ;
-  border-radius: 3px;
-}
-.event-count,
-.event-name,
-.event-cancelled {
-  display: inline;
-  padding: 0 10px;
-  font-size: 1rem;
-}
-.event-count {
-  color:#B7CADB;
-  text-align: right;
-}
-.event-name {
-  padding-right: 0;
-  text-align: left;
-}
-.event-cancelled {
-  color: #B7CADB;
-  text-align: right;
-}
-
-
-.calendar-container {
-  float: right;
-  position: absolute;
-  margin: 50px ;
-  height: 700px;
-  background: #fff;
-  font: 13px Helvetica, Arial, san-serif;
-  display: inline-block;
-  border-bottom-left-radius: 3px;
-  border-top-left-radius: 3px;
-}
-.calendar-container:after {
-  clear: both;
-}
-.calendar {
-  display: table;
-}
-
-.year-header {
-  background:#DAB888;
-  height: 40px;
-  width: 1050px;
-  text-align: center;
-  position: relative;
-  color: #fff;
-  border-top-left-radius: 3px;
-}
-.year-header span {
-  display: inline-block;
-  font-size: 20px;
-  line-height: 40px;
-}
-.left-button,
-.right-button {
-  cursor: pointer;
-  width: 28px;
-  text-align: center;
-  position: absolute;
-}
-.left-button {
-  left: 0;
-  -webkit-border-top-left-radius: 5px;
-  -moz-border-radius-topleft: 5px;
-  border-top-left-radius: 5px;
-}
-.right-button {
-  right: 0;
-  top: 0;
-  -webkit-border-top-right-radius: 5px;
-  -moz-border-radius-topright: 5px;
-  border-top-right-radius: 5px;
-}
-.left-button:hover {
-  background: #DAB888;
-}
-.right-button:hover {
-  background: #B7CADB;
-}
-
-.button {
-  cursor: pointer;
-  -webkit-appearance: none;
-  -moz-appearance: none;
-  appearance: none;
-  outline: none;
-  font-size: 1rem;
-  border-radius: 25px;
-  padding: 0.65rem 1.9rem;
-  transition: 0.2s ease all;
-  color: white;
-  border: none;
-  background: #DAB888;
- 
-}
-#cancel-button {
-  background: #DAB888;
-
-}
-#add-button {
-  display: block;
-  position: absolute;
-  right: 20px;
-  bottom: 20px;
-  background: #DAB888;
-}
-#add-button:hover,
-#ok-button:hover,
-#cancel-button:hover {
-  transform: scale(1.03);
-}
-#add-button:active,
-#ok-button:active,
-#cancel-button:active {
-  transform: translateY(3px) scale(0.97);
-}
-
-.days-table,
-.dates-table,
-.months-table {
-  border-collapse: separate;
-  text-align: center;
-}
-.day {
-    height: 80px;
-  width: 250px;
-  padding: 0 10px;
-  line-height: 26px;
-  border: 2px solid transparent;
-  text-transform: uppercase;
-  font-size: 90%;
-  color:#DAB888;
-}
-.month {
-  cursor: default;
-    height: 80px;
-  width: 100px;
-  padding: 0 2px;
-  padding-top: 10px;
-  line-height: 26px;
-  text-transform: uppercase;
-  font-size: 11px;
-  color: #DAB888;
-  transition: all 250ms;
-}
-.active-month {
-  font-weight: bold;
-  font-size: 14px;
-  color: #DAB888;
- 
-}
-.month:hover {
-  color:#B7CADB;
-  
-}
-.table-date {
-  cursor: default;
-  color: #2b2b2b;
-  height: 90px;
-  width: 250px;
-  font-size: 15px;
-  padding: 10px;
-  line-height: 26px;
-  text-align: center;
-  border-radius: 50%;
-  border: 2px solid transparent;
-  transition: all 250ms;
-}
-.table-date:not(.nil):hover {
-  border-color: #B7CADB;
-  
-}
-.event-date {
-  border-color: #B7CADB ;
-  
-}
-.active-date {
-  background: #DAB888;
-  
-  color: #fff;
-}
-.event-date.active-date {
-  background:#DAB888;
- 
-}
-
-.dialog {
-  z-index: 5;
-  background: #fff;
-  position: absolute;
-  width: 500px;
-  height: 500px;
-  top: 50px;
-  left: 750px;
-  border-top-right-radius: 3px;
-  border-bottom-right-radius: 3px;
-  display: none;
-  border-left: 1px ;
-}
-.dialog-header {
-  margin: 20px;
-  color: #333;
-  text-align: center;
-}
-.form-container {
-  margin-top: 25%;
-}
-.form-label {
-  color: #333;
-}
-.input {
-  border: none;
-  background: none;
-  border-bottom: 1px #aaa solid;
-  display: block;
-  margin-bottom: 50px;
-  width: 200px;
-  height: 20px;
-  text-align: center;
-  transition: border-color 250ms;
-}
-.input:focus {
-  outline: none;
-  border-color: #B7CADB;
-}
-.error-input {
-  border-color: #DAB888;
-}
-
-@media only screen and (max-width: 780px) {
-  .content {
-    overflow: visible;
-    position: relative;
-    max-width: 100%;
-    width: 370px;
-    height: 100%;
-    background: #B7CADB;
-   
-  }
-  .dialog {
-    width: 370px;
-    height: 450px;
-    border-radius: 3px;
-    top: 0;
-    left: 0;
-  }
-  .events-container {
-    float: none;
-    overflow: visible;
-    height: 80px;
+    body {
+        background-color: #0D1E96;
+    }
+    div.content{
+        height: 800px;
+        margin-top: 30px;
+        margin: 30px;
+        background-color: #F5F6FF ;
+    }
+    .contenedor-icono svg{
     width: 50px;
-    padding: 0;
-    display: block;
-    left: 0;
-    border-radius: 3px;
-  }
-
-  .calendar-container {
-    float: none;
-    padding: 0;
-    margin: 0 auto;
-    margin-right: 0;
-    display: block;
-    left: 0;
-    border-radius: 6px;
-  }
-}
-
-
-@media only screen and (max-width: 400px) {
-  .content,
-  .events-container,
-  .year-header,
-  .calendar-container {
-    width: 320px;
-  }
-  .dialog {
-    width: 320px;
-  }
-  .months-table {
-    display: block;
-    margin: 0 auto;
-    width: 320px;
-    
-  }
-  .event-card {
-    width: 300px;
-  }
-  .day {
-    padding: 0 7px;
-  }
-  .month {
-    display: inline-block;
-    padding: 10px 10px;
-    font-size: 0.8rem;
-  }
-  .table-date {
-    height: 80px;
-    width: 100px;
-    line-height: 20px;
-  }
-  .event-name,
-  .event-count,
-  .event-cancelled {
-    font-size: 0.8rem;
-  }
-  .add-button {
-    bottom: 10px;
-    right: 10px;
-    padding: 0.5rem 1.5rem;
-  }
-}
-</style>
-
-<body>
-  <div class="contenedor-icono">
-    <a type="button"  href="/agenda" style="background:#DAB88B; margin-top:20px; margin-left:20px;font-family:courier new; color:#FDF6EC;border-radius:50px;" class="btn btn-default btn-circle btn-xl"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left-circle-fill" viewBox="0 0 16 16">
-    <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z"/>
-    </svg> Atras </a>  
-  </div>
-  <div class="content">
-    <div class="calendar-container position-absolute end-0 botton-50">
-      <div class="calendar"> 
-        <div class="year-header"> 
-          <span class="left-button" id="prev"> &lang; </span> 
-          <span class="year" id="label"></span> 
-          <span class="right-button" id="next"> &rang; </span>
-        </div> 
-        <table class="months-table"> 
-          <tbody>
-            <tr class="months-row">
-              <td class="month">Jan</td> 
-              <td class="month">Feb</td> 
-              <td class="month">Mar</td> 
-              <td class="month">Apr</td> 
-              <td class="month">May</td> 
-              <td class="month">Jun</td> 
-              <td class="month">Jul</td>
-              <td class="month">Aug</td> 
-              <td class="month">Sep</td> 
-              <td class="month">Oct</td>          
-              <td class="month">Nov</td>
-              <td class="month">Dec</td>
-            </tr>
-          </tbody>
-        </table> 
-        <table class="days-table"> 
-          <td class="day">Sun</td> 
-          <td class="day">Mon</td> 
-          <td class="day">Tue</td> 
-          <td class="day">Wed</td> 
-          <td class="day">Thu</td> 
-          <td class="day">Fri</td> 
-          <td class="day">Sat</td>
-        </table> 
-        <div class="frame"> 
-          <table class="dates-table"> 
-              <tbody class="tbody">             
-              </tbody> 
-          </table>
-            </div>
-        </div> 
-      </div>
-    </div>
-  </div>
-  
-   
-  <script
-    src="https://code.jquery.com/jquery-3.2.1.min.js"
-    integrity="sha256-hwg4gsxgFZhOsEEamdOYGBf13FyQuiTwlAQgxVSNgt4="
-    crossorigin="anonymous">
-  </script>
-
-
-  <script>
-    
- $(document).ready(function(){
-    var date = new Date();
-    var today = date.getDate();
-    $(".right-button").click({date: date}, next_year);
-    $(".left-button").click({date: date}, prev_year);
-    $(".month").click({date: date}, month_click);
-    $("#add-button").click({date: date}, new_event);
-    $(".months-row").children().eq(date.getMonth()).addClass("active-month");
-    init_calendar(date);
-    var events = check_events(today, date.getMonth()+1, date.getFullYear());
-    show_events(events, months[date.getMonth()], today);
-});
-
-function init_calendar(date) {
-    $(".tbody").empty();
-    $(".events-container").empty();
-    var calendar_days = $(".tbody");
-    var month = date.getMonth();
-    var year = date.getFullYear();
-    var day_count = days_in_month(month, year);
-    var row = $("<tr class='table-row'></tr>");
-    var today = date.getDate();
-    date.setDate(1);
-    var first_day = date.getDay();
-  
-    for(var i=0; i<35+first_day; i++) {
-        var day = i-first_day+1;
-
-        if(i%7===0) {
-            calendar_days.append(row);
-            row = $("<tr class='table-row'></tr>");
-        }
-      
-        if(i < first_day || day > day_count) {
-            var curr_date = $("<td class='table-date nil'>"+"</td>");
-            row.append(curr_date);
-        }   
-        else {
-            var curr_date = $("<td class='table-date'>"+day+"</td>");
-            var events = check_events(day, month+1, year);
-            if(today===day && $(".active-date").length===0) {
-                curr_date.addClass("active-date");
-                show_events(events, months[month], day);
-            }
-          
-            if(events.length!==0) {
-                curr_date.addClass("event-date");
-            }
-  
-            curr_date.click({events: events, month: months[month], day:day}, date_click);
-            row.append(curr_date);
-        }
+    height: 50px;
+    color:#FF6D00;
     }
-  
-    calendar_days.append(row);
-    $(".year").text(year);
-}
+    .contenedor-icono1 svg{
+    width: 50px;
+    height: 50px;
+    color:#0D1E96;
+    }
+
+    html, body {
+                font-family: "Century Gothic", CenturyGothic, AppleGothic, sans-serif;
+            }
+            .description {
+                text-align: center;
+                padding-bottom: 40px;
+            }
+            .jsCalendar.clean-theme tbody  td.jsCalendar-previous, .jsCalendar.clean-theme tbody td.jsCalendar-next {
+                color: #000;
+                opacity: 0.2;
+                
+            }
+            #wrapper {
+                margin-left:70px;
+				margin-top: 50px;
+                width: 350px;
+                box-shadow:  2px 2px 2px rgba(0, 42, 255, 0.4);
+            }
+            #wrapper .jsCalendar table {
+                box-shadow: none;
+            }
+            .clear {
+                clear: both;
+            }
+            #events-calendar {
+                float: left;
+            }
+            #events {
+                float: left;
+                width: 435px;
+                margin: 10px 20px 10px 5px;
+            }
+            #events .title {
+                padding: 5px 0px;
+                text-align: center;
+                font-weight: bold;
+                border-bottom: 1px solid rgba(252, 94, 2, 0.4);
+            }
+         
+           
+            .version {
+                font-size: 12px;
+                width: 800px;
+                margin: 0 auto;
+                text-align: right;
+            }
 
 
-function days_in_month(month, year) {
-    var monthStart = new Date(year, month, 1);
-    var monthEnd = new Date(year, month + 1, 1);
-    return (monthEnd - monthStart) / (1000 * 60 * 60 * 24);    
-}
 
-
-function date_click(event) {
-    $(".events-container").show(250);
-    $("#dialog").hide(250);
-    $(".active-date").removeClass("active-date");
-    $(this).addClass("active-date");
-    show_events(event.data.events, event.data.month, event.data.day);
-};
-
-
-function month_click(event) {
-    $(".events-container").show(250);
-    $("#dialog").hide(250);
-    var date = event.data.date;
-    $(".active-month").removeClass("active-month");
-    $(this).addClass("active-month");
-    var new_month = $(".month").index(this);
-    date.setMonth(new_month);
-    init_calendar(date);
-}
-
-
-function next_year(event) {
-    $("#dialog").hide(250);
-    var date = event.data.date;
-    var new_year = date.getFullYear()+1;
-    $("year").html(new_year);
-    date.setFullYear(new_year);
-    init_calendar(date);
-}
-
-
-function prev_year(event) {
-    $("#dialog").hide(250);
-    var date = event.data.date;
-    var new_year = date.getFullYear()-1;
-    $("year").html(new_year);
-    date.setFullYear(new_year);
-    init_calendar(date);
-}
-
-
-function new_event(event) {
+body {
+    font-family: 'Lato', sans-serif;
+    margin: 0;
+    height: 100vh;
  
-    if($(".active-date").length===0)
-        return;
+}
+
+*:first-letter {
+    text-transform: capitalize;
+}
+
+.roundBorder {
+    border-radius: 5px;
+}
+
+.right{
+    float: left;
   
-    $("input").click(function(){
-        $(this).removeClass("error-input");
-    })
+}
+.flex{
+    float: left;
+  
+}
+.list {
 
-    $("#dialog input[type=text]").val('');
-    $("#dialog input[type=number]").val('');
-    $(".events-container").hide(250);
-    $("#dialog").show(250);
+    margin-left: 50%;
+    padding: 25px;
+    background-color: var(--light);
+    width: 100%;
+    max-width: 350px;
+}
 
-    $("#cancel-button").click(function() {
-        $("#name").removeClass("error-input");
-        $("#count").removeClass("error-input");
-        $("#dialog").hide(250);
-        $(".events-container").show(250);
-    });
+.date {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+	color:#0D1E96;
+}
 
-    $("#ok-button").unbind().click({date: event.data.date}, function() {
-        var date = event.data.date;
-        var name = $("#name").val().trim();
-        var count = parseInt($("#count").val().trim());
-        var day = parseInt($(".active-date").html());
+.dateRight {
+    display: flex;
+    align-items: center;
+	color:#0D1E96;
+}
+
+#dateNumber {
+    font-size: 50px;
+	color:#0D1E96;
+}
+
+#dateText {
+    letter-spacing: 3px;
+    text-transform: uppercase;
+	color:#0D1E96;
+}
+
+#dateMonth,
+#dateNumber,
+#dateText  {
+    font-weight: bold;
+}
+
+#dateMonth,
+#dateYear {
+    margin-left: 7px;
+    font-size: 20px;
+}
+
+form {
+    margin: 25px 0;
+    display: grid;
+    grid-auto-flow: column;
+    grid-template-columns: auto 35px auto;
+    grid-column-gap: 15px;
+}
+
+input {
+    border: none;
+    padding-left: 10px;
+    background-color: var(--diabled);
+}
+
+input:focus {
+    outline: none;
+}
+
+.addTaskButton,
+.orderButton {
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+.addTaskButton {
+    height: 35px;
+    border-radius: 50%;
+    font-size: 18px;
+    background-color: var(--diabled);
+}
+
+.task {
+    background-color: var(--primary);
+    padding: 20px;
+    margin-top: 15px;
+    color: var(--light);
+    cursor: pointer;
+}
+
+.done {
+    background-color: var(--diabled);
+    text-decoration: line-through;
+    color: var(--dark);
+}
         
-        if(name.length === 0) {
-            $("#name").addClass("error-input");
-        }
-        else if(isNaN(count)) {
-            $("#count").addClass("error-input");
-        }
-        else {
-            $("#dialog").hide(250);
-            console.log("new event");
-            new_event_json(name, count, date, day);
-            date.setDate(day);
-            init_calendar(date);
-        }
-    });
-}
+        
+</style>
+<div  class="content contenedor-icono">
+    <a type="button"  href="/agenda" style=" margin-bottom:1%; margin-left:20px;font-family:courier new;border-radius:30px" class="btn btn-default btn-circle btn-xl">
+    <svg xmlns="http://www.w3.org/2000/svg" width="50" height="50" fill="currentColor" class="bi bi-arrow-left-circle-fill" viewBox="0 0 16 16">
+    <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z"/>
+    </svg></a>
+  <center>
+       <svg style="color: #0D1E96; margin-bottom:1%" xmlns="http://www.w3.org/2000/svg" width="5" height="5" fill="currentColor" class="bi bi-calendar2-day-fill" viewBox="0 0 25 25">
+        <path d="M3.5 0a.5.5 0 0 1 .5.5V1h8V.5a.5.5 0 0 1 1 0V1h1a2 2 0 0 1 2 2v11a2 2 0 0 1-2 2H2a2 2 0 0 1-2-2V3a2 2 0 0 1 2-2h1V.5a.5.5 0 0 1 .5-.5zm9.954 3H2.545c-.3 0-.545.224-.545.5v1c0 .276.244.5.545.5h10.91c.3 0 .545-.224.545-.5v-1c0-.276-.244-.5-.546-.5zm-2.24 4.855a.428.428 0 1 0 0-.855.426.426 0 0 0-.429.43c0 .238.192.425.43.425zm.337.563h-.672v4.105h.672V8.418zm-6.867 4.105v-2.3h2.261v-.61H4.684V7.801h2.464v-.61H4v5.332h.684zm3.296 0h.676V9.98c0-.554.227-1.007.953-1.007.125 0 .258.004.329.015v-.613a1.806 1.806 0 0 0-.254-.02c-.582 0-.891.32-1.012.567h-.02v-.504H7.98v4.105z"/>
+      </svg>
+    <h1 style="font-family:copperplate; color:#0D1E96; margin-top: 0 px;" class="mb-4">{{viewTitle}}</h1></center>
+       <div class="flex">
+		<script src="https://gramthanos.github.io/jsCalendar/js/jsCalendar.min.js"></script>
+            <link href="https://gramthanos.github.io/jsCalendar/css/jsCalendar.min.css" rel="stylesheet"/>
+            <link href="https://gramthanos.github.io/jsCalendar/css/themes/jsCalendar.clean.min.css" rel="stylesheet"/>
+        <div id="wrapper">
+            <!-- Calendar element -->
+            <div id="events-calendar"></div>
+            <!-- Events -->
+            <div id="events"></div>
+            <!-- Clear -->
+            <div class="clear"></div>
+        </div>
+	   </div>
+			<div class="right">
+				<div class="list roundBorder">
+				<div class="date">
+					<div class="dateRight">
+						<div id="dateNumber"></div>
+						<div>
+							<div id="dateMonth"></div>
+							<div id="dateYear"></div>
+						</div>
+					</div>
+					<div id="dateText"></div>
+				</div>
+				<form action="/calendario" method="post">
+					<input type="hidden" name="_id" value="{{calen._id}}">
+                    <input type="text"  name="taskText" id="taskText"  placeholder="Escribe tus apuntes y recordatorios" class="roundBorder" style="background-color:#c6d8ff; height:80px; width:450px; border-color:#F3F5F9; color:#0D1E96; " value="{{calen.taskText}}" required>
+					<button type="submit" class="addTaskButton">
+						<svg xmlns="http://www.w3.org/2000/svg" width="25" height="25" fill="currentColor" class="bi bi-check-circle-fill" viewBox="0 0 25 25">
+						<path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zm-3.97-3.03a.75.75 0 0 0-1.08.022L7.477 9.417 5.384 7.323a.75.75 0 0 0-1.06 1.06L6.97 11.03a.75.75 0 0 0 1.079-.02l3.992-4.99a.75.75 0 0 0-.01-1.05z"/>
+						</svg>
+					</button>
+					
+				</form>
+
+            <div id="tasksContainer" style="background : #c6d8ff; padding : 5px;  width : 550px; height : 350px; overflow:scroll;">
+            <div class="row justify-content-md-center">
+            <div class="col-md-16">
+             <table  class="table table-hover" style="background:#F5F6FF; color:#0D1E96; font-size:large; font-family:courier new" >
+ 
+            <tbody>
+                {{#each list}}
+                <tr>
+                <td> 
+                
+                <a href="/calendario/delete/{{this._id}}" aria-pressed="true" onclick="return confirm('¿Esta seguro de eliminar?');">
+                <svg xmlns="http://www.w3.org/2000/svg" style="color:#d10e0e;" width="16" height="16" fill="currentColor" class="bi bi-x" viewBox="0 0 16 16">
+                <path d="M4.646 4.646a.5.5 0 0 1 .708 0L8 7.293l2.646-2.647a.5.5 0 0 1 .708.708L8.707 8l2.647 2.646a.5.5 0 0 1-.708.708L8 8.707l-2.646 2.647a.5.5 0 0 1-.708-.708L7.293 8 4.646 5.354a.5.5 0 0 1 0-.708z"/>
+                </svg></a>
+                </td>
 
 
-function new_event_json(name, count, date, day) {
-    var event = {
-        "occasion": name,
-        "invited_count": count,
-        "year": date.getFullYear(),
-        "month": date.getMonth()+1,
-        "day": day
-    };
-    event_data["events"].push(event);
-}
+                <td >{{this.taskText}}</td>
+                
+                </tr>
+                    {{/each}}
+            </tbody>
+            </table>
+
+            </div>
+            </div>
+
+            </div>          
+      
+		<script>
+			// Info date
+		const dateNumber = document.getElementById('dateNumber');
+		const dateText = document.getElementById('dateText');
+		const dateMonth = document.getElementById('dateMonth');
+		const dateYear = document.getElementById('dateYear');
+
+		// Tasks Container
+		const tasksContainer = document.getElementById('tasksContainer');
+
+		const setDate = () => {
+			const date = new Date();
+			dateNumber.textContent = date.toLocaleString('es', { day: 'numeric' });
+			dateText.textContent = date.toLocaleString('es', { weekday: 'long' });
+			dateMonth.textContent = date.toLocaleString('es', { month: 'short' });
+			dateYear.textContent = date.toLocaleString('es', { year: 'numeric' });
+		};
+
+		const addNewTask = event => {
+			event.preventDefault();
+			const { value } = event.target.taskText;
+			if(!value) return;
+			const task = document.createElement('div');
+			task.classList.add('task', 'roundBorder');
+			task.addEventListener('click', changeTaskState)
+			task.textContent = value;
+			tasksContainer.prepend(task);
+			event.target.reset();
+		};
+
+		const changeTaskState = event => {
+			event.target.classList.toggle('done');
+		};
+
+		const order = () => {
+			const done = [];
+			const toDo = [];
+			tasksContainer.childNodes.forEach( el => {
+				el.classList.contains('done') ? done.push(el) : toDo.push(el)
+			})
+			return [...toDo, ...done];
+		}
+
+		const renderOrderedTasks = () => {
+			order().forEach(el => tasksContainer.appendChild(el))
+		}
+
+		setDate();
+		</script>
+
+         
+              </div> 
+    </div>
+ 
+
+    <script>
+        var elements = {
+                // Calendar element
+    calendar : document.getElementById("events-calendar")}
+
+        // Create the calendar
+            elements.calendar.className = "clean-theme";
+            var calendar = jsCalendar.new(elements.calendar);
+
+    </script>
 
 
-function show_events(events, month, day) {
-   
-    $(".events-container").empty();
-    $(".events-container").show(250);
-    console.log(event_data["events"]);
-   
-    if(events.length===0) {
-        var event_card = $("<div class='event-card'></div>");
-        var event_name = $("<div class='event-name'>No hay eventos para este dia </div>");
-        $(event_card).css({ "border-left": "10px solid #DAB888" });
-        $(event_card).append(event_name);
-        $(".events-container").append(event_card);
-    }
-    else {
-       
-        for(var i=0; i<events.length; i++) {
-            var event_card = $("<div class='event-card'></div>");
-            var event_name = $("<div class='event-name'>"+events[i]["occasion"]+":</div>");
-            var event_count = $("<div class='event-count'>"+events[i]["invited_count"]+" :00</div>");
-            if(events[i]["cancelled"]===true) {
-                $(event_card).css({
-                    "border-left": "10px solid #DAB888"
-                });
-                event_count = $("<div class='event-cancelled'>Cancelled</div>");
-            }
-            $(event_card).append(event_name).append(event_count);
-            $(".events-container").append(event_card);
-        }
-    }
-}
+		
 
-
-function check_events(day, month, year) {
-    var events = [];
-    for(var i=0; i<event_data["events"].length; i++) {
-        var event = event_data["events"][i];
-        if(event["day"]===day &&
-            event["month"]===month &&
-            event["year"]===year) {
-                events.push(event);
-            }
-    }
-    return events;
-}
-
-
-var event_data = {
-    "events": [
-    {
-        "occasion": " Repeated Test Event ",
-        "invited_count": 120,
-        "year": 2017,
-        "month": 5,
-        "day": 10,
-        "cancelled": true
-    },
-    {
-        "occasion": " Repeated Test Event ",
-        "invited_count": 120,
-        "year": 2017,
-        "month": 5,
-        "day": 10,
-        "cancelled": true
-    },
-        {
-        "occasion": " Repeated Test Event ",
-        "invited_count": 120,
-        "year": 2017,
-        "month": 5,
-        "day": 10,
-        "cancelled": true
-    },
-    {
-        "occasion": " Repeated Test Event ",
-        "invited_count": 120,
-        "year": 2017,
-        "month": 5,
-        "day": 10
-    },
-        {
-        "occasion": " Repeated Test Event ",
-        "invited_count": 120,
-        "year": 2017,
-        "month": 5,
-        "day": 10,
-        "cancelled": true
-    },
-    {
-        "occasion": " Repeated Test Event ",
-        "invited_count": 120,
-        "year": 2017,
-        "month": 5,
-        "day": 10
-    },
-        {
-        "occasion": " Repeated Test Event ",
-        "invited_count": 120,
-        "year": 2017,
-        "month": 5,
-        "day": 10,
-        "cancelled": true
-    },
-    {
-        "occasion": " Repeated Test Event ",
-        "invited_count": 120,
-        "year": 2017,
-        "month": 5,
-        "day": 10
-    },
-        {
-        "occasion": " Repeated Test Event ",
-        "invited_count": 120,
-        "year": 2017,
-        "month": 5,
-        "day": 10,
-        "cancelled": true
-    },
-    {
-        "occasion": " Repeated Test Event ",
-        "invited_count": 120,
-        "year": 2017,
-        "month": 5,
-        "day": 10
-    },
-    {
-        "occasion": " Test Event",
-        "invited_count": 120,
-        "year": 2017,
-        "month": 5,
-        "day": 11
-    }
-    ]
-};
-
-const months = [ 
-    "January", 
-    "February", 
-    "March", 
-    "April", 
-    "May", 
-    "June", 
-    "July", 
-    "August", 
-    "September", 
-    "October", 
-    "November", 
-    "December" 
-];
-  </script>
-</body>
-</html>

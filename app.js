@@ -81,7 +81,7 @@ app.use(function(req, res, next) {
   next(createError(404));
 });
 
-mongoose.connect('mongodb://localhost:27017', {useNewUrlParser:true, useUnifiedTopology:true})
+mongoose.connect('mongodb://localhost:27017/Students_Grade_Cal', {useNewUrlParser:true, useUnifiedTopology:true})
 .then(() => console.log("Se establecio conexion a mongodb"))
 .catch((e) => console.log("Error", e))
 
