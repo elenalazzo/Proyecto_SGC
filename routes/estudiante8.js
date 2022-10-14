@@ -9,7 +9,7 @@ const Estudiantes8 = require('../models/estudiantes8'); //modificar
 router.get('/', (req, res) => {
     if (req.user) {
         res.render("pages/estudiante8/estudiantes8AddEdit", { //modificar
-            viewTitle: "Nuevo Estudiante"
+            viewTitle: "Nuevo Estudiante 8°"
         });
       } else {
         res.render('../views/pages/login', {
@@ -49,7 +49,7 @@ function updateEstudiante8(req, res) {  //MODIFICAR
         if(!err){
             res.redirect("estudiantes8/listEstudiantes8"); //modificar
         } else {
-            res.render("estudiantes8/estudiantes8AddEdit", { //modificar
+            res.render("pages/estudiantes8/estudiantes8AddEdit", { //modificar
                 viewTitle: "Editar Estudiante", 
                 estudiante8: req.body  //MODIFICAR
             })
@@ -81,7 +81,7 @@ router.get('/:id', (req, res) => {
     Estudiantes8.findById(req.params.id, (err, docs) => { //MODIFICAR
         if(!err){
             res.render("pages/estudiante8/estudiantes8AddEdit", { //modifcar
-                viewTitle: "Editar Estudiante",
+                viewTitle: "Editar Estudiante 8°",
                 estudiante8: docs  //MODIFICAR
             });
         }

@@ -9,7 +9,7 @@ const Estudiantes2 = require('../models/estudiantes2'); //modificar
 router.get('/', (req, res) => {
     if (req.user) {
         res.render("pages/estudiante2/estudiantes2AddEdit", { //modificar
-            viewTitle: "Nuevo Estudiante"
+            viewTitle: "Nuevo Estudiante 2"
         });
       } else {
         res.render('../views/pages/login', {
@@ -49,8 +49,8 @@ function updateEstudiante2(req, res) {  //MODIFICAR
         if(!err){
             res.redirect("estudiantes2/listEstudiantes2"); //modificar
         } else {
-            res.render("estudiantes2/estudiantes2AddEdit", { //modificar
-                viewTitle: "Editar Estudiante", 
+            res.render("pages/estudiantes2/estudiantes2AddEdit", { //modificar
+                viewTitle: "Editar Estudiante ", 
                 estudiante2: req.body   //MODIFICAR
             })
         }
@@ -81,7 +81,7 @@ router.get('/:id', (req, res) => {
     Estudiantes2.findById(req.params.id, (err, docs) => {   //MODIFICAR
         if(!err){
             res.render("pages/estudiante2/estudiantes2AddEdit", { //modifcar
-                viewTitle: "Editar Estudiante",
+                viewTitle: "Editar Estudiante 2°",
                 estudiante2: docs     //MODIFICAR
             });
         }
