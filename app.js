@@ -18,6 +18,15 @@ var calendarioRouter = require('./routes/calendario');//declaracion de la ruta c
 var alumnoRouter = require('./routes/alumno');//declaracion de la ruta agenda
 var asighomeRouter = require('./routes/asighome');//declaracion de la ruta de inicio de asignatura
 var estudiantesRouter = require('./routes/estudiante'); //declaracion de la ruta estudiantes
+var estudiantes2Router = require('./routes/estudiante2');
+var estudiantes3Router = require('./routes/estudiante3');
+var estudiantes4Router = require('./routes/estudiante4');
+var estudiantes5Router = require('./routes/estudiante5');
+var estudiantes6Router = require('./routes/estudiante6');
+var estudiantes7Router = require('./routes/estudiante7');
+var estudiantes8Router = require('./routes/estudiante8');
+var estudiantes9Router = require('./routes/estudiante9');
+var verestuRouter = require('./routes/verestu'); //declaracion de la ruta de veresttu
 var notaRouter = require('./routes/nota');//declaracion de la ruta nota
 var vernotaRouter = require('./routes/vernota');//declaracion de la ruta vernota
 var horarioRouter = require('./routes/horarios');
@@ -62,6 +71,15 @@ app.use('/calendario',calendarioRouter)//ruta de calendario
 app.use('/alumno', alumnoRouter); //ruta de Alumno
 app.use('/asighome', asighomeRouter); //ruta de Asignatura
 app.use('/estudiantes', estudiantesRouter); //ruta de Estudiantes
+app.use('/estudiantes2', estudiantes2Router);
+app.use('/estudiantes3', estudiantes3Router);
+app.use('/estudiantes4', estudiantes4Router);
+app.use('/estudiantes5', estudiantes5Router);
+app.use('/estudiantes6', estudiantes6Router);
+app.use('/estudiantes7', estudiantes7Router);
+app.use('/estudiantes8', estudiantes8Router);
+app.use('/estudiantes9', estudiantes9Router);
+app.use('/verestu', verestuRouter);//ruta de estudiante
 app.use('/nota', notaRouter); //ruta de nota
 app.use('/vernota', vernotaRouter); //ruta de nota
 app.use('/horario', horarioRouter);
