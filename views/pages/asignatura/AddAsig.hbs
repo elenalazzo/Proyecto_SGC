@@ -33,12 +33,12 @@
       <input type="hidden" name="_id" value="{{asignatura._id}}">
        <div class="form-group" style="font-family:courier new; color:#0D1E96">
          <strong>Asignatura</strong> 
-         <input type="text" name="course" id="course" class="form-control" placeholder="Escriba la asignatura" style="background-color:#c6d8ff; border-color:#F3F5F9; color:#0D1E96" value="{{asignatura.course}}" required>
+         <input type="text" onkeypress="return soloLetras(event)" name="course" id="course" class="form-control" placeholder="Escriba la asignatura" style="background-color:#c6d8ff; border-color:#F3F5F9; color:#0D1E96" value="{{asignatura.course}}" required>
        </div>
        <br>
        <div class="form-group" style="font-family:courier new; color:#0D1E96">
           <strong>Descripción</strong> 
-         <input type="text" name="description" id="description" class="form-control" placeholder="Describir asignatura" style="background-color:#c6d8ff; border-color:#F3F5F9; color:#0D1E96" value="{{asignatura.description}}" required>
+         <input type="text" onkeypress="return soloLetras(event)" name="description" id="description" class="form-control" placeholder="Describir asignatura" style="background-color:#c6d8ff; border-color:#F3F5F9; color:#0D1E96" value="{{asignatura.description}}" required>
        </div>
        <br>
      <center><strong><button type="submit" class="btn btn-lg" style="font-family:optima; background-color:#0D1E96;color:#ffffff">Guardar</button></strong></center>
@@ -46,3 +46,24 @@
 </div>
 
 </div>
+
+<script>
+  function soloLetras(e) {
+    var key = e.keyCode || e.which,
+      tecla = String.fromCharCode(key).toLowerCase(),
+      letras = " áéíóúabcdefghijklmnñopqrstuvwxyz",
+      especiales = [8, 37],
+      tecla_especial = false;
+
+    for (var i in especiales) {
+      if (key == especiales[i]) {
+        tecla_especial = true;
+        break;
+      }
+    }
+
+    if (letras.indexOf(tecla) == -1 && !tecla_especial) {
+      return false;
+    }
+  }
+</script>

@@ -33,22 +33,17 @@
       <input type="hidden" name="_id" value="{{estudiante7._id}}">
        <div class="form-group" style="font-family:courier new; color:#0D1E96">
          <strong>Nombres</strong> 
-         <input type="text" name="Nombres" id="Nombres"  class="form-control" placeholder="Escriba nombres" style="background-color:#c6d8ff; border-color:#F3F5F9; color:#0D1E96" value="{{estudiante7.Nombres}}" required>
+         <input type="text" onkeypress="return soloLetras(event)" name="Nombres" id="Nombres"  class="form-control" placeholder="Escriba nombres" style="background-color:#c6d8ff; border-color:#F3F5F9; color:#0D1E96" value="{{estudiante7.Nombres}}" required>
        </div>
        <br>
        <div class="form-group" style="font-family:courier new; color:#0D1E96">
           <strong>Apellidos</strong> 
-         <input type="text" name="Apellidos" id="Apellidos" class="form-control" placeholder="Escriba apellidos" style="background-color:#c6d8ff; border-color:#F3F5F9; color:#0D1E96" value="{{estudiante7.Apellidos}}" required>
-       </div>
-       <br>
-       <div class="form-group" style="font-family:courier new; color:#0D1E96">
-          <strong>Grado</strong> 
-         <input type="text" name="Grado" id="Grado" class="form-control" placeholder="Ingrese el grado cursando"  style="background-color:#c6d8ff; border-color:#F3F5F9; color:#0D1E96" value="{{estudiante7.Grado}}" required>
+         <input type="text" onkeypress="return soloLetras(event)" name="Apellidos" id="Apellidos" class="form-control" placeholder="Escriba apellidos" style="background-color:#c6d8ff; border-color:#F3F5F9; color:#0D1E96" value="{{estudiante7.Apellidos}}" required>
        </div>
        <br>
        <div class="form-group" style="font-family:courier new; color:#0D1E96">
           <strong>Sección</strong> 
-         <input type="text" name="Seccion" id="Seccion" class="form-control" placeholder="Ingrese la sección"  style="background-color:#c6d8ff; border-color:#F3F5F9; color:#0D1E96" value="{{estudiante7.Seccion}}" required>
+         <input type="text" onkeypress="return soloLetras(event)" ="Seccion" id="Seccion" class="form-control" placeholder="Ingrese la sección"  style="background-color:#c6d8ff; border-color:#F3F5F9; color:#0D1E96" value="{{estudiante7.Seccion}}" required>
        </div>
        <br>
      <center><strong><button type="submit" class="btn btn-lg" style="font-family:optima; background-color:#0D1E96;color:#ffffff">Guardar</button></strong></center>
@@ -56,3 +51,25 @@
 </div>
 
 </div>
+
+
+<script>
+  function soloLetras(e) {
+    var key = e.keyCode || e.which,
+      tecla = String.fromCharCode(key).toLowerCase(),
+      letras = " áéíóúabcdefghijklmnñopqrstuvwxyz",
+      especiales = [8, 37],
+      tecla_especial = false;
+
+    for (var i in especiales) {
+      if (key == especiales[i]) {
+        tecla_especial = true;
+        break;
+      }
+    }
+
+    if (letras.indexOf(tecla) == -1 && !tecla_especial) {
+      return false;
+    }
+  }
+</script>

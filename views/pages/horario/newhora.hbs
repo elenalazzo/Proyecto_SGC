@@ -33,32 +33,32 @@
       <input type="hidden" name="_id" value="{{horario._id}}">
        <div class="form-group" style="font-family:courier new; color:#0D1E96">
          <strong>Hora</strong> 
-         <input type="text" name="Hora" id="Hora" class="form-control" placeholder="7:00-8:50" style="background-color:#c6d8ff; border-color:#F3F5F9; color:#0D1E96" value="{{horario.Hora}}" required>
+         <input type="text" onkeypress="return soloNumeros(event)" name="Hora" id="Hora" class="form-control" placeholder="7:00-8:50" style="background-color:#c6d8ff; border-color:#F3F5F9; color:#0D1E96" value="{{horario.Hora}}" required>
        </div>
        <br>
        <div class="form-group" style="font-family:courier new; color:#0D1E96">
           <strong>Lunes</strong> 
-         <input type="text" name="Lunes" id="Lunes" class="form-control" placeholder="Ingrese materia a impartir" style="background-color:#c6d8ff; border-color:#F3F5F9; color:#0D1E96" value="{{horario.Lunes}}" required>
+         <input type="text" onkeypress="return soloLetras(event)" name="Lunes" id="Lunes" class="form-control" placeholder="Ingrese materia a impartir" style="background-color:#c6d8ff; border-color:#F3F5F9; color:#0D1E96" value="{{horario.Lunes}}" required>
        </div>
        <br>
        <div class="form-group" style="font-family:courier new; color:#0D1E96">
           <strong>Martes</strong> 
-         <input type="text" name="Martes" id="Martes"  class="form-control" placeholder="Ingrese materia a impartir"  style="background-color:#c6d8ff; border-color:#F3F5F9; color:#0D1E96" value="{{horario.Martes}}"  required>
+         <input type="text" onkeypress="return soloLetras(event)" name="Martes" id="Martes"  class="form-control" placeholder="Ingrese materia a impartir"  style="background-color:#c6d8ff; border-color:#F3F5F9; color:#0D1E96" value="{{horario.Martes}}"  required>
        </div>
        <br>
        <div class="form-group" style="font-family:courier new; color:#0D1E96">
           <strong>Miercoles</strong> 
-         <input type="text" name="Miercoles" id="Miercoles" class="form-control" placeholder="Ingrese materia a impartir"  style="background-color:#c6d8ff; border-color:#F3F5F9; color:#0D1E96" value="{{horario.Miercoles}}"  required>
+         <input type="text" onkeypress="return soloLetras(event)" name="Miercoles" id="Miercoles" class="form-control" placeholder="Ingrese materia a impartir"  style="background-color:#c6d8ff; border-color:#F3F5F9; color:#0D1E96" value="{{horario.Miercoles}}"  required>
        </div>
        <br>
        <div class="form-group" style="font-family:courier new; color:#0D1E96">
           <strong>Jueves</strong> 
-         <input type="text" name="Jueves" id="Jueves"  class="form-control" placeholder="Ingrese materia a impartir"  style="background-color:#c6d8ff; border-color:#F3F5F9; color:#0D1E96" value="{{horario.Jueves}}" required>
+         <input type="text" onkeypress="return soloLetras(event)" name="Jueves" id="Jueves"  class="form-control" placeholder="Ingrese materia a impartir"  style="background-color:#c6d8ff; border-color:#F3F5F9; color:#0D1E96" value="{{horario.Jueves}}" required>
        </div>
        <br>
        <div class="form-group" style="font-family:courier new; color:#0D1E96">
           <strong>Viernes</strong> 
-         <input type="text" name="Viernes" id="Viernes"  class="form-control" placeholder="Ingrese materia a impartir"  style="background-color:#c6d8ff; border-color:#F3F5F9; color:#0D1E96" value="{{horario.Viernes}}"required>
+         <input type="text" onkeypress="return soloLetras(event)" name="Viernes" id="Viernes"  class="form-control" placeholder="Ingrese materia a impartir"  style="background-color:#c6d8ff; border-color:#F3F5F9; color:#0D1E96" value="{{horario.Viernes}}"required>
        </div>
        <br>
      <center><strong><button type="submit" class="btn btn-lg" style="font-family:optima; background-color:#0D1E96;color:#ffffff">Guardar</button></strong></center>
@@ -66,3 +66,45 @@
 </div>
 
 </div>
+
+<script>
+  function soloLetras(e) {
+    var key = e.keyCode || e.which,
+      tecla = String.fromCharCode(key).toLowerCase(),
+      letras = " áéíóúabcdefghijklmnñopqrstuvwxyz",
+      especiales = [8, 37],
+      tecla_especial = false;
+
+    for (var i in especiales) {
+      if (key == especiales[i]) {
+        tecla_especial = true;
+        break;
+      }
+    }
+
+    if (letras.indexOf(tecla) == -1 && !tecla_especial) {
+      return false;
+    }
+  }
+
+  function soloNumeros(a) {
+    var key2 = a.keyCode || a.which,
+      tecla = String.fromCharCode(key2).toLowerCase(),
+      numeros = " 0123456789.-",
+      especiales = [8, 37],
+      tecla_especial = false;
+
+    for (var i in especiales) {
+      if (key2 == especiales[i]) {
+        tecla_especial = true;
+        break;
+      }
+    }
+
+    if (numeros.indexOf(tecla) == -1 && !tecla_especial) {
+      return false;
+    }
+  }
+
+
+</script>

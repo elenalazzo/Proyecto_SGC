@@ -4,7 +4,6 @@ const Schema = mongoose.Schema;
 const estudiantes4Schema = new Schema ({  //modificar
     Nombres: String,
     Apellidos: String,
-    Grado: String,
     Seccion: String
 });
 
