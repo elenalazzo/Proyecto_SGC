@@ -1,7 +1,7 @@
 // importar las dependencias
 const express = require('express');
 const mongoose = require('mongoose');
-var router = express.Router();
+let router = express.Router();
 
 //llamado al modelo
 const Notas2 = require('../models/notas2');
@@ -20,15 +20,17 @@ router.get('/', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-    if(req.body._id == '')
-    newNota2(req, res);
-    else
-    updateNota2(req, res);
+    if(req.body._id == ''){
+        newNota2(req, res);
+    }else{
+        updateNota2(req, res);
+    }
+    
 });
 
 //metodo para registrar
 function newNota2(req, res) {
-    var nota2 = new Notas2();
+    let nota2 = new Notas2();
     nota2.Nombres = req.body.Nombres;
     nota2.Apellidos = req.body.Apellidos;
     nota2.NotaAC = req.body.NotaAC;

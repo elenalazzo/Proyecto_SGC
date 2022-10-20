@@ -69,13 +69,13 @@
 
 <script>
   function soloLetras(e) {
-    var key = e.keyCode || e.which,
+    let key = e.keyCode || e.which,
       tecla = String.fromCharCode(key).toLowerCase(),
       letras = " áéíóúabcdefghijklmnñopqrstuvwxyz",
-      especiales = [8, 37],
+      especiales = [8, 37, 39, 46, 14, 15],
       tecla_especial = false;
 
-    for (var i in especiales) {
+    for (let i in especiales) {
       if (key == especiales[i]) {
         tecla_especial = true;
         break;
@@ -88,13 +88,13 @@
   }
 
   function soloNumeros(a) {
-    var key2 = a.keyCode || a.which,
+    let key2 = a.keyCode || a.which,
       tecla = String.fromCharCode(key2).toLowerCase(),
       numeros = " 0123456789.-",
       especiales = [8, 37],
       tecla_especial = false;
 
-    for (var i in especiales) {
+    for (let i in especiales) {
       if (key2 == especiales[i]) {
         tecla_especial = true;
         break;

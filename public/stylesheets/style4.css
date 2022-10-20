@@ -83,10 +83,6 @@ span {
     display: block;
 }
 
-#sidebar ul li a {
-    text-align: left;
-}
-
 #sidebar.active ul li a {
     padding: 20px 10px;
     text-align: center;
@@ -132,6 +128,7 @@ span {
     padding: 10px;
     font-size: 1.1em;
     display: block;
+    text-align: left;
 }
 
 #sidebar ul li a:hover {
@@ -239,16 +236,12 @@ a.article:hover {
     #sidebar ul li a i {
         margin-right: 0;
         display: block;
+        font-size: 1.3em;
     }
     #sidebar ul ul a {
         padding: 10px !important;
     }
-    #sidebar ul li a i {
-        font-size: 1.3em;
-    }
-    #sidebar {
-        margin-left: 0;
-    }
+    
     #sidebarCollapse span {
         display: none;
     }

@@ -1,7 +1,7 @@
 // importar las dependencias
 const express = require('express');
 const mongoose = require('mongoose');
-var router = express.Router();
+let router = express.Router();
 
 //llamado al modelo
 const Notas5 = require('../models/notas5');
@@ -20,15 +20,17 @@ router.get('/', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-    if(req.body._id == '')
-    newNota5(req, res);
-    else
-    updateNota5(req, res);
+    if(req.body._id == ''){
+        newNota5(req, res);
+    }else{
+        updateNota5(req, res);
+    }
+    
 });
 
 //metodo para registrar
 function newNota5(req, res) {
-    var nota5 = new Notas5();
+    let nota5 = new Notas5();
     nota5.Nombres = req.body.Nombres;
     nota5.Apellidos = req.body.Apellidos;
     nota5.NotaAC = req.body.NotaAC;
@@ -103,21 +105,14 @@ router.get('/delete/:id', (req, res) => {
 
 //Promediar
 router.post('/listNotas5', function(req, res){
-  var NotaAC = parseFloat(req.body.NotaAC) || 0;
-  var NotaAI = parseFloat(req.body.NotaAI) || 0;
-  var NotaEX = parseFloat(req.body.NotaEX) || 0;
-  var Prom = '';
+  let NotaAC = parseFloat(req.body.NotaAC) || 0;
+  let NotaAI = parseFloat(req.body.NotaAI) || 0;
+  let NotaEX = parseFloat(req.body.NotaEX) || 0;
+  let Prom = '';
   Prom = ` ${((NotaAC + NotaAI + NotaEX)/3)}`;
+  
 
-  var viewData = {
-        "NotaAC": NotaAC,
-        "NotaAI": NotaAI,
-        "NotaEX": NotaEX,
-        "Prom": Prom
-
-    };
-
-    var viewData2 = {
+    let viewData2 = {
         NotaAC,
         NotaAI,
         NotaEX,

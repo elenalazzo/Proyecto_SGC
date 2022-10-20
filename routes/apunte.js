@@ -1,7 +1,7 @@
 // importar las dependencias
 const express = require('express');
 const mongoose = require('mongoose');
-var router = express.Router();
+let router = express.Router();
 
 //llamado al modelo
 const Apuntes = require('../models/apuntes');
@@ -21,15 +21,17 @@ router.get('/', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-    if(req.body._id == '')
-    newApunte(req, res);
-    else
-    updateApunte(req, res);
+    if(req.body._id == ''){
+        newApunte(req, res);
+    }else{
+        updateApunte(req, res);
+    }
+    
 });
 
 //metodo para registrar
 function newApunte(req, res) {
-    var apunte = new Apuntes();
+    let apunte = new Apuntes();
     apunte.Titulo = req.body.Titulo;
     apunte.Fecha = Date.parse(req.body.Fecha);
     apunte.Descripcion = req.body.Descripcion;

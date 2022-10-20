@@ -1,5 +1,5 @@
-var express = require('express');
-var router = express.Router();
+let express = require('express');
+let router = express.Router();
 const methods = require('../methods');
 const User = require('../models/user');
 
@@ -42,7 +42,7 @@ router.post('/login', async (req, res) => {
   const { email, password } = req.body;
   const hashedPassword = methods.getHashedPassword(password);
 
-  user = await User.findOne({ email: email, password: hashedPassword })
+  let user = await User.findOne({ email: email, password: hashedPassword })
 
     .then(user => {
       if(user){

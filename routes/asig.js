@@ -1,7 +1,7 @@
 //importar referencia
 const express = require('express');
 const mongoose = require('mongoose');
-var router = express.Router();
+let router = express.Router();
 
 //llamanos al modelo
 const Asignaturas = require('../models/asignaturas');
@@ -22,14 +22,16 @@ router.get('/', (req, res) =>{
 });
 
 router.post('/',(req, res) => {
-  if(req.body._id == '')
-  newAsig(req, res);
-  else
-  updateAsig(req, res);
+  if(req.body._id == ''){
+    newAsig(req, res);
+  }else{
+    updateAsig(req, res);
+  }
+  
 });
 
 function newAsig(req, res){
-  var asignatura = new Asignaturas();
+  let asignatura = new Asignaturas();
   asignatura.course = req.body.course;
   asignatura.description = req.body.description;
   asignatura.save((err) =>{

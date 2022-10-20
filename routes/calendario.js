@@ -1,7 +1,7 @@
-var express = require('express');
+let express = require('express');
 const mongoose = require('mongoose');
 const Calendarios = require('../models/calendarios');
-var router = express.Router();
+let router = express.Router();
 
 
 //llamado al modelo
@@ -23,14 +23,16 @@ router.get('/', function(req, res) {
 
 router.post('/',(req,res)=>{
 
-  if(req.body._id == '')
+  if(req.body._id == ''){
     calendario(req, res)
+  }
+    
   
 });
 
 //metodo para registrar
 function calendario(req, res) {
-    var calen = new Calendario();
+    let calen = new Calendario();
     calen.taskText = req.body.taskText;
     calen.save((err) => {
         if(!err){

@@ -1,7 +1,7 @@
 // importar las dependencias
 const express = require('express');
 const mongoose = require('mongoose');
-var router = express.Router();
+let router = express.Router();
 
 //llamado al modelo
 const Estudiantes4 = require('../models/estudiantes4'); //modificar
@@ -20,15 +20,17 @@ router.get('/', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-    if(req.body._id == '')
-    newEstudiante4(req, res);
-    else
-    updateEstudiante4(req, res);
+    if(req.body._id == ''){
+        newEstudiante4(req, res);
+    }else{
+        updateEstudiante4(req, res);
+    }
+    
 });
 
 //metodo para registrar
 function newEstudiante4(req, res) {  //MODIFICAR
-    var estudiante4 = new Estudiantes4(); //MODIFICAR
+    let estudiante4 = new Estudiantes4(); //MODIFICAR
     estudiante4.Nombres = req.body.Nombres; //MODIFICAR
     estudiante4.Apellidos = req.body.Apellidos; //MODIFICAR
     estudiante4.Grado = req.body.Grado; //MODIFICAR

@@ -2,7 +2,7 @@
 const express = require('express');
 const mongoose = require('mongoose');
 const horario = require('../models/horario');
-var router = express.Router();
+let router = express.Router();
 
 //llamado al modelo
 const Horarios = require('../models/horario');
@@ -22,15 +22,17 @@ router.get('/', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-    if(req.body._id == '')
-    newhorario(req, res);
-    else
-    updatehorario(req, res);
+    if(req.body._id == ''){
+        newhorario(req, res);
+    }else{
+        updatehorario(req, res);
+    }
+    
 });
 
 //metodo para registrar
 function newhorario(req, res) {
-    var horario = new Horarios();
+    let horario = new Horarios();
     horario.Hora = req.body.Hora;
     horario.Lunes = req.body.Lunes;
     horario.Martes = req.body.Martes;
@@ -38,7 +40,7 @@ function newhorario(req, res) {
     horario.Jueves = req.body.Jueves;
     horario.Viernes = req.body.Viernes;
     horario.save((err) => {
-        if(!err){0
+        if(!err){
 
             res.redirect("horario/listhora");
         }
