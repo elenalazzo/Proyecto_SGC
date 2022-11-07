@@ -21,10 +21,78 @@
     }
 </style>
 
+<!-- Funcion de Buscador -->
+<script type="text/javascript">
+    (function(document) {
+      'use strict';
+
+      var LightTableFilter = (function(Arr) {
+
+        var _input;
+
+        function _onInputEvent(e) {
+          _input = e.target;
+          var tables = document.getElementsByClassName(_input.getAttribute('data-table'));
+          Arr.forEach.call(tables, function(table) {
+            Arr.forEach.call(table.tBodies, function(tbody) {
+              Arr.forEach.call(tbody.rows, _filter);
+            });
+          });
+        }
+
+        function _filter(row) {
+          var text = row.textContent.toLowerCase(), val = _input.value.toLowerCase();
+          row.style.display = text.indexOf(val) === -1 ? 'none' : 'table-row';
+        }
+
+        return {
+          init: function() {
+            var inputs = document.getElementsByClassName('light-table-filter');
+            Arr.forEach.call(inputs, function(input) {
+              input.oninput = _onInputEvent;
+            });
+          }
+        };
+      })(Array.prototype);
+
+      document.addEventListener('readystatechange', function() {
+        if (document.readyState === 'complete') {
+          LightTableFilter.init();
+        }
+      });
+
+    })(document);
+
+        function soloLetras(e) {
+    let key = e.keyCode || e.which,
+      tecla = String.fromCharCode(key).toLowerCase(),
+      letras = " áéíóúabcdefghijklmnñopqrstuvwxyz",
+      especiales = [8, 37],
+      tecla_especial = false;
+
+    for (let i in especiales) {
+      if (key == especiales[i]) {
+        tecla_especial = true;
+        break;
+      }
+    }
+
+    if (letras.indexOf(tecla) == -1 && !tecla_especial) {
+      return false;
+    }
+    }
+    </script>
+
 <div class="content contenedor-icono1">
    <a type="button"  href="/verestu" style=" margin-top:10px; margin-left:20px; border-radius:50px;" class="btn btn-default btn-circle btn-xl"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left-circle-fill" viewBox="0 0 16 16">
     <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z"/>
     </svg></a>    
+
+    <div class="container-fluid">
+     <form class="d-flex" role="search">
+        <input class="form-control me-2 light-table-filter" data-table="order-table" type="text" onkeypress="return soloLetras(event)" placeholder="Buscar Estudiante" aria-label="Search" style="margin-left:60%;" >
+     </form>
+     </div>  
 
 <center><h1 style="font-family:copperplate; color:#0D1E96; margin-top: 1px;" class="mb-4">
   <div class="contenedor-icono">
@@ -46,7 +114,7 @@
 
 <div class="row justify-content-md-center">
   <div class="col-md-8">
-        <table  class="table table-hover" style="background:#F5F6FF; color:#0D1E96; font-size:large; font-family:courier new" >
+        <table  class="table table-hover order-table" style="background:#F5F6FF; color:#0D1E96; font-size:large; font-family:courier new" >
       <thead>
         <tr>
           <th scope="col">Nombres</th>

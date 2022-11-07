@@ -6,7 +6,8 @@ let router = express.Router();
 //llamado al modelo
 const Notas1 = require('../models/notas1');
 
-router.get('/', (req, res) => {
+router.get('/', (req, res, next ) => {
+
     if (req.user) {
         res.render("pages/nota1/notas1AddEdit", {
             viewTitle: "Nuevo promedio"
@@ -19,6 +20,8 @@ router.get('/', (req, res) => {
       }
 });
 
+
+
 router.post('/', (req, res) => {
     if(req.body._id == ''){
         newNota1(req, res);
@@ -28,8 +31,10 @@ router.post('/', (req, res) => {
     
 });
 
+
 //metodo para registrar
-function newNota1(req, res) {
+function newNota1 (req, res) {
+    
     let nota1 = new Notas1();
     nota1.Nombres = req.body.Nombres;
     nota1.Apellidos = req.body.Apellidos;
@@ -39,13 +44,14 @@ function newNota1(req, res) {
     nota1.Prom = req.body.Prom;
     nota1.Prom = ` ${((nota1.NotaAC + nota1.NotaAI + nota1.NotaEX)/3).toFixed(2)}`;
     nota1.save((err) => {
-        if(!err){
+        if (!err){
             res.redirect("notas1/listNotas1");
         }
         else {
             console.log("Se ha producido un error");
         }
     });
+    
 }
 
 //metodo para actualizar
