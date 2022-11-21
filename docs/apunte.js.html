@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    
+    <meta charset="utf-8">
+    <title>apunte.js - Documentation</title>
+    
+    
+    <script src="scripts/prettify/prettify.js"></script>
+    <script src="scripts/prettify/lang-css.js"></script>
+    <!--[if lt IE 9]>
+      <script src="//html5shiv.googlecode.com/svn/trunk/html5.js"></script>
+    <![endif]-->
+    <link type="text/css" rel="stylesheet" href="styles/prettify.css">
+    <link type="text/css" rel="stylesheet" href="styles/jsdoc.css">
+    <script src="scripts/nav.js" defer></script>
+    
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+<body>
+
+<input type="checkbox" id="nav-trigger" class="nav-trigger" />
+<label for="nav-trigger" class="navicon-button x">
+  <div class="navicon"></div>
+</label>
+
+<label for="nav-trigger" class="overlay"></label>
+
+<nav >
+    
+    
+    <h2><a href="index.html">Home</a></h2><h3>Global</h3><ul><li><a href="global.html#ActualizarApuntes">ActualizarApuntes</a></li><li><a href="global.html#ActualizarAsignatura">ActualizarAsignatura</a></li><li><a href="global.html#ActualizarEstudiantes">ActualizarEstudiantes</a></li><li><a href="global.html#ActualizarHorarios">ActualizarHorarios</a></li><li><a href="global.html#ActualizarNotas">ActualizarNotas</a></li><li><a href="global.html#AgregarApunte">AgregarApunte</a></li><li><a href="global.html#AgregarAsignaturas">AgregarAsignaturas</a></li><li><a href="global.html#AgregarEstudiantes">AgregarEstudiantes</a></li><li><a href="global.html#AgregarEventos">AgregarEventos</a></li><li><a href="global.html#AgregarHorario">AgregarHorario</a></li><li><a href="global.html#AgregarNotas">AgregarNotas</a></li><li><a href="global.html#VerNotas">VerNotas</a></li></ul>
+    
+</nav>
+
+<div id="main">
+    
+    <h1 class="page-title">apunte.js</h1>
+    
+
+    
+
+
+
+    
+    <section>
+        <article>
+            <pre class="prettyprint source linenums"><code>// importar las dependencias
+const express = require('express');
+const mongoose = require('mongoose');
+let router = express.Router();
+
+//llamado al modelo
+const Apuntes = require('../models/apuntes');
+
+router.get('/', (req, res) => {
+    if (req.user) {
+        res.render("pages/apunte/apuntesAddEdit", {
+            viewTitle: "Nuevo Apunte"
+        });
+      } else {
+        res.render('../views/pages/login', {
+          message: "Inicie sesión para continuar",
+          messageClass: "alert-danger"
+        });
+      }
+    
+});
+
+router.post('/', (req, res) => {
+    if(req.body._id == ''){
+        newApunte(req, res);
+    }else{
+        updateApunte(req, res);
+    }
+    
+});
+
+//Funcion para agregar Apuntes
+/** @function
+ * @name AgregarApunte */
+function newApunte(req, res) {
+    let apunte = new Apuntes();
+    apunte.Titulo = req.body.Titulo;
+    apunte.Fecha = Date.parse(req.body.Fecha);
+    apunte.Descripcion = req.body.Descripcion;
+    apunte.save((err) => {
+        if(!err){
+            res.redirect("apuntes/listApuntes");
+        }
+        else {
+            console.log("Se ha producido un error");
+        }
+    });
+}
+
+//Funcion para actualizar apuntes
+/** @function
+ * @name ActualizarApuntes*/
+function updateApunte(req, res) {
+    Apuntes.findOneAndUpdate({_id: req.body._id}, req.body, {new: true},
+        (err) => {
+            if(!err){
+                res.redirect("apuntes/listApuntes");
+            } else {
+                console.log("pages/apunte/apuntesAddEdit", {
+                    viewTitle: "Editar Apunte",
+                    apunte: req.body
+                })
+            }
+        });
+}
+
+router.get('/listApuntes', (req, res) => {
+
+    if (req.user) {
+        Apuntes.find((err, docs) => {
+            if(!err){
+                res.render("pages/apunte/listApuntes", {
+                    viewTitle: "Lista de Apuntes",
+                    list: docs
+                });
+            } else {
+                console.log("Error al listar los apuntes" + err);
+            } 
+        })
+      } else {
+        res.render('../views/pages/login', {
+          message: "Inicie sesión para continuar",
+          messageClass: "alert-danger"
+        });
+      }
+})
+
+router.get('/:id', (req, res) => {
+    Apuntes.findById(req.params.id, (err, docs) => {
+        if(!err){
+            res.render("pages/apunte/apuntesAddEdit", {
+                viewTitle: "Editar Apunte",
+                apunte: docs
+            });
+        }
+    })
+})
+
+router.get('/delete/:id', (req, res) => {
+    Apuntes.findByIdAndRemove(req.params.id, (err, docs) => {
+        if(!err){
+            res.redirect("/apuntes/listApuntes");
+        } else {
+            console.log("No se ha podido eliminar el registro", err);
+        } 
+    })
+})
+
+module.exports = router;</code></pre>
+        </article>
+    </section>
+
+
+
+
+    
+    
+</div>
+
+<br class="clear">
+
+<footer>
+    Documentation generated by <a href="https://github.com/jsdoc3/jsdoc">JSDoc 4.0.0</a> on Sun Nov 20 2022 19:12:58 GMT-0600 (hora estándar central) using the <a href="https://github.com/clenemt/docdash">docdash</a> theme.
+</footer>
+
+<script>prettyPrint();</script>
+<script src="scripts/polyfill.js"></script>
+<script src="scripts/linenumber.js"></script>
+
+
+
+</body>
+</html>

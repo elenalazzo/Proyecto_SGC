@@ -28,7 +28,7 @@ router.post('/', (req, res) => {
     
 });
 
-//metodo para registrar
+
 function newEstudiante2(req, res) {
     let estudiante2 = new Estudiantes2(); //MODIFICAR
     estudiante2.Nombres = req.body.Nombres;
@@ -45,7 +45,7 @@ function newEstudiante2(req, res) {
     });
 }
 
-//metodo para actualizar
+
 function updateEstudiante2(req, res) {  //MODIFICAR
     Estudiantes2.findOneAndUpdate({_id: req.body._id}, req.body, {new: true}, (err, doc) => {
         if(!err){

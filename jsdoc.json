@@ -1,0 +1,19 @@
+{
+  "plugins": [],
+  "source": {
+    "include": ["routes"],
+    "includePattern": ".js$",
+    "excludePattern": "(node_modules|docs)"
+  },
+  
+  "templates": {
+    "cleverLinks": true,
+    "monospaceLinks": true
+  },
+
+  "opts": {
+    "recurse": true,
+    "destination": "./docs",
+    "template": "node_modules/docdash"
+  }
+}

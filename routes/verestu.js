@@ -7,7 +7,9 @@ router.get('/', function(req, res, next) {
   res.render('verestu', { title: "Student's Grade Calculator" });
 });
 
-// registro de rutas
+//Funcion para visualizar notas
+/** @function
+ * @name VerNotas */
 router.get('/', function(req, res) {
   if (req.user) {
     res.render('verestu', {

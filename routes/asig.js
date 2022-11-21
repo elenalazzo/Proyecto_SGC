@@ -30,6 +30,9 @@ router.post('/',(req, res) => {
   
 });
 
+//Funcion para agregar asignaturas
+/** @function
+ * @name AgregarAsignaturas*/
 function newAsig(req, res){
   let asignatura = new Asignaturas();
   asignatura.course = req.body.course;
@@ -46,6 +49,9 @@ function newAsig(req, res){
 
 }
 
+//Funcion para actualizar asignaturas
+/** @function
+ * @name ActualizarAsignatura */
 function updateAsig(req, res){
   // busca el id y si no encuentra crea uno nuevo
   Asignaturas.findOneAndUpdate({_id: req.body._id}, req.body, {new: true},

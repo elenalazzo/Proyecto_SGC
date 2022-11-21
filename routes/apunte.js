@@ -29,7 +29,9 @@ router.post('/', (req, res) => {
     
 });
 
-//metodo para registrar
+//Funcion para agregar Apuntes
+/** @function
+ * @name AgregarApunte */
 function newApunte(req, res) {
     let apunte = new Apuntes();
     apunte.Titulo = req.body.Titulo;
@@ -45,7 +47,9 @@ function newApunte(req, res) {
     });
 }
 
-//metodo para actualizar
+//Funcion para actualizar apuntes
+/** @function
+ * @name ActualizarApuntes*/
 function updateApunte(req, res) {
     Apuntes.findOneAndUpdate({_id: req.body._id}, req.body, {new: true},
         (err) => {
