@@ -30,7 +30,9 @@ router.post('/',(req,res)=>{
   
 });
 
-//metodo para registrar
+//Funcion para agregar Eventos
+/** @function
+ * @name AgregarEventos */
 function calendario(req, res) {
     let calen = new Calendario();
     calen.taskText = req.body.taskText;

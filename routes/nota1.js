@@ -32,7 +32,9 @@ router.post('/', (req, res) => {
 });
 
 
-//metodo para registrar
+//Funcion para agregar notas
+/** @function
+ * @name AgregarNotas */
 function newNota1 (req, res) {
     
     let nota1 = new Notas1();
@@ -54,7 +56,9 @@ function newNota1 (req, res) {
     
 }
 
-//metodo para actualizar
+//Funcion para actualizar notas
+/** @function
+ * @name ActualizarNotas*/
 function updateNota1(req, res) {
     Notas1.findOneAndUpdate({_id: req.body._id}, req.body, {new: true}, (err, doc) => {
         if(!err){

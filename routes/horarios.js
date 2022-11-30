@@ -30,7 +30,9 @@ router.post('/', (req, res) => {
     
 });
 
-//metodo para registrar
+///Funcion para agregar un nuevo horario
+/** @function
+ * @name AgregarHorario */
 function newhorario(req, res) {
     let horario = new Horarios();
     horario.Hora = req.body.Hora;
@@ -50,7 +52,9 @@ function newhorario(req, res) {
     });
 }
 
-//metodo para actualizar
+//Funcion para agregar estudiantes
+/** @function
+ * @name ActualizarHorarios */
 function updatehorario(req, res) {
     Horarios.findOneAndUpdate({_id: req.body._id}, req.body, {new: true},
         (err) => {
