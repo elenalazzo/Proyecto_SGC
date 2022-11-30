@@ -1,13 +1,14 @@
 <style>
     body {
-        height: 600px;
+   
         background: url("2.png");
         background-size: cover;
-        background-size:50%;
+        background-size:100%;
         background-repeat: no-repeat;
         background-position:  left bottom;
         background-attachment: fixed;
         background-color: #c6d8ff;
+        position:static;
     }
     .contenedor-icono svg{
     width: 50px;
@@ -25,12 +26,8 @@
 
 <br>
 <br>
-<div class="content contenedor-icono1">
-   <a type="button"  href="/" style=" margin-top:10px; margin-left:50px; border-radius:50px;" class="btn btn-default btn-circle btn-xl"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left-circle-fill" viewBox="0 0 16 16">
-    <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z"/>
-    </svg></a>  
-<br>
-<center><h1 style="font-family:copperplate; color:#0D1E96" class="mb-4">LOGIN</h1></center>
+
+<center><h1 style="color:#0D1E96; font-family: 'Cuprum', sans-serif;" class="mb-4">INICIAR SESIÓN</h1></center>
 
 <div class="row justify-content-md-center">
     <div class="col-md-4">
@@ -40,17 +37,17 @@
             </div>
         {{/if}}
         <form action="/login" method="POST">
-            <div class="form-group" style="font-family:courier new ;color:#0D1E96; font-weight: bold" >
+            <div class="form-group" style="color:#0D1E96;font-family: 'Cuprum', sans-serif; font-weight: bold" >
                 Email
-                <input type="email" name="email" id="" class="form-control" placeholder="nombre@example.com" style="background-color:#F5F6FF; color:#0D1E96" required>
+                <input type="email" name="email" id="" class="form-control" placeholder="nombre@example.com" style="font-family: 'Cuprum', sans-serif;background-color:#F5F6FF; color:#0D1E96" required>
             </div>
             <br>
-            <div class="form-group" style="font-family:courier new; color:#0D1E96; font-weight: bold">
+            <div class="form-group" style="color:#0D1E96;font-family: 'Cuprum', sans-serif; font-weight: bold">
                 Password
-                <input type="password" name="password" id="" class="form-control" placeholder="Password" style="background-color:#F5F6FF; color:#0D1E96" required>
+                <input type="password" name="password" id="" class="form-control" placeholder="Password" style="font-family: 'Cuprum', sans-serif;background-color:#F5F6FF; color:#0D1E96" required>
             </div>
             <br>
-            <center><button type="submit" class="btn btn-lg" style="font-family:optima; background-color:#FF6D00; color:#ffffff">Login</button></center>
+            <center><button type="submit" class="btn btn-lg" style="font-family: 'Cuprum', sans-serif;background-color:#FF6D00; color:#ffffff">Entrar</button></center>
         </form>
     </div>
 </div>
