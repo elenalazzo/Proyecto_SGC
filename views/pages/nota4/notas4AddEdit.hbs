@@ -3,7 +3,7 @@
         background-color: #0D1E96;
     }
     div.content{
-        height: 700px;
+        height: 1300px;
         margin-top: 30px;
         margin: 30px;
         background-color: #F5F6FF ;
@@ -41,19 +41,49 @@
          <input type="text" onkeypress="return soloLetras(event)" name="Apellidos" id="Apellidos" class="form-control" placeholder="Escriba apellidos" style="background-color:#c6d8ff; border-color:#F3F5F9; color:#0D1E96" value="{{nota4.Apellidos}}" required>
        </div>
        <br>
-       <div class="form-group" style=" color:#0D1E96;font-family: 'Cuprum', sans-serif;">
-          <strong>Actividad Cotidiana</strong> 
-         <input type="text" onkeypress="return soloNumeros(event)" name="NotaAC" id="NotaAC" class="form-control" placeholder="Nota de actividad cotidiana" style="background-color:#c6d8ff; border-color:#F3F5F9; color:#0D1E96" value="{{nota4.NotaAC}}" required>
+       <div class="form-group" style="color:#0D1E96; font-family: 'Cuprum', sans-serif;">
+          <strong>Actividad Cotidiana Trimestre 1</strong> 
+         <input type="text" onkeypress="return soloNumeros(event)" name="NotaAC" id="NotaAC" class="form-control" placeholder="Nota de actividad cotidiana" style="background-color:#c6d8ff; border-color:#F3F5F9; color:#0D1E96" value="{{nota1.NotaAC}}" required>
        </div>
        <br>
-       <div class="form-group" style=" color:#0D1E96; font-family: 'Cuprum', sans-serif;">
-          <strong>Actividad Integradora</strong> 
-         <input type="text" onkeypress="return soloNumeros(event)" name="NotaAI" id="NotaAI" class="form-control" placeholder="Nota de actividad integradora" style="background-color:#c6d8ff; border-color:#F3F5F9; color:#0D1E96" value="{{nota4.NotaAI}}" required>
+       <div class="form-group" style="color:#0D1E96; font-family: 'Cuprum', sans-serif;">
+          <strong>Actividad Integradora Trimestre 1</strong> 
+         <input type="text" onkeypress="return soloNumeros(event)" name="NotaAI" id="NotaAI" class="form-control" placeholder="Nota de actividad integradora" style="background-color:#c6d8ff; border-color:#F3F5F9; color:#0D1E96" value="{{nota1.NotaAI}}" required>
        </div>
        <br>
-       <div class="form-group" style=" color:#0D1E96;font-family: 'Cuprum', sans-serif;">
-          <strong>Examen Final</strong> 
-         <input type="text" onkeypress="return soloNumeros(event)" name="NotaEX" id="NotaEX"  class="form-control" placeholder="Nota del examen final evaluativo" style="background-color:#c6d8ff; border-color:#F3F5F9; color:#0D1E96" value="{{nota4.NotaEX}}" required>
+       <div class="form-group" style="color:#0D1E96; font-family: 'Cuprum', sans-serif;">
+          <strong>Examen Final Trimestre 1</strong> 
+         <input type="text" onkeypress="return soloNumeros(event)" name="NotaEX" id="NotaEX"  class="form-control" placeholder="Nota del examen final evaluativo" style="background-color:#c6d8ff; border-color:#F3F5F9; color:#0D1E96" value="{{nota1.NotaEX}}" required>
+       </div>
+       <br>
+       <div class="form-group" style="color:#0D1E96; font-family: 'Cuprum', sans-serif;">
+           <strong>Actividad Cotidiana Trimestre 2</strong> 
+         <input type="text" onkeypress="return soloNumeros(event)" name="NotaAC2" id="NotaAC2" class="form-control" placeholder="Nota de actividad cotidiana" style="background-color:#c6d8ff; border-color:#F3F5F9; color:#0D1E96" value="{{nota1.NotaAC2}}" required>
+       </div>
+       <br>
+       <div class="form-group" style="color:#0D1E96; font-family: 'Cuprum', sans-serif;">
+          <strong>Actividad Integradora Trimestre 2</strong> 
+         <input type="text" onkeypress="return soloNumeros(event)" name="NotaAI2" id="NotaAI2" class="form-control" placeholder="Nota de actividad integradora" style="background-color:#c6d8ff; border-color:#F3F5F9; color:#0D1E96" value="{{nota1.NotaAI2}}" required>
+       </div>
+       <br>
+       <div class="form-group" style="color:#0D1E96; font-family: 'Cuprum', sans-serif;">
+         <strong>Examen Final Trimestre 2</strong> 
+         <input type="text" onkeypress="return soloNumeros(event)" name="NotaEX2" id="NotaEX2"  class="form-control" placeholder="Nota del examen final evaluativo" style="background-color:#c6d8ff; border-color:#F3F5F9; color:#0D1E96" value="{{nota1.NotaEX2}}" required>
+       </div>
+       <br>
+       <div class="form-group" style="color:#0D1E96; font-family: 'Cuprum', sans-serif;">
+           <strong>Actividad Cotidiana Trimestre 3</strong> 
+         <input type="text" onkeypress="return soloNumeros(event)" name="NotaAC3" id="NotaAC3" class="form-control" placeholder="Nota de actividad cotidiana" style="background-color:#c6d8ff; border-color:#F3F5F9; color:#0D1E96" value="{{nota1.NotaAC3}}" required>
+       </div>
+       <br>
+       <div class="form-group" style="color:#0D1E96; font-family: 'Cuprum', sans-serif;">
+         <strong>Actividad Integradora Trimestre 3</strong> 
+         <input type="text" onkeypress="return soloNumeros(event)" name="NotaAI3" id="NotaAI3" class="form-control" placeholder="Nota de actividad integradora" style="background-color:#c6d8ff; border-color:#F3F5F9; color:#0D1E96" value="{{nota1.NotaAI3}}" required>
+       </div>
+       <br>
+       <div class="form-group" style="color:#0D1E96; font-family: 'Cuprum', sans-serif;">
+        <strong>Examen Final Trimestre 3</strong> 
+         <input type="text" onkeypress="return soloNumeros(event)" name="NotaEX3" id="NotaEX3"  class="form-control" placeholder="Nota del examen final evaluativo" style="background-color:#c6d8ff; border-color:#F3F5F9; color:#0D1E96" value="{{nota1.NotaEX3}}" required>
        </div>
        <br>
      <center><strong><button type="submit" class="btn btn-lg" style="font-family: 'Cuprum', sans-serif;background-color:#0D1E96;color:#ffffff">Guardar</button></strong></center>

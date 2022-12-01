@@ -142,16 +142,25 @@
 </div>
 
 <div class="row justify-content-md-center">
-  <div class="col-md-8">
+  <div class="col-md-10">
         <table  class="table table-hover order-table" style="font-family: 'Cuprum', sans-serif; background:#F5F6FF; color:#0D1E96; font-size:large" >
       <thead>
         <tr>
-          <th scope="col">Nombres</th>
+         <th scope="col">Nombres</th>
           <th scope="col">Apellidos</th>
-          <th scope="col">Actividad cotidiana</th>
-          <th scope="col">Actividad integrado</th>
+          <th scope="col">Actividad Cotidiana</th>
+          <th scope="col">Actividad Integradora</th>
           <th scope="col">Examen</th>
-          <th scope="col" style="color:#FF6D00 ;">Promedio</th>
+          <th scope="col" style="color:#FF6D00 ;">Primer Trimestre</th>
+          <th scope="col">Actividad Cotidiana</th>
+          <th scope="col">Actividad Integradora</th>
+          <th scope="col">Examen</th>
+          <th scope="col" style="color:#FF6D00 ;">Segundo Trimestre</th>
+          <th scope="col">Actividad Cotidiana</th>
+          <th scope="col">Actividad Integradora</th>
+          <th scope="col">Examen</th>
+          <th scope="col" style="color:#FF6D00 ;">Tercer Trimestre</th>
+          <th scope="col" style="color:#ff0400 ;">Final</th>
         </tr>
       </thead>
       <tbody>
@@ -162,7 +171,16 @@
           <td>{{this.NotaAC}}</td>
           <td>{{this.NotaAI}}</td>
           <td>{{this.NotaEX}}</td>
-          <td style="color:#FF6D00; font-weight:bold">{{this.Prom}}</td>
+          <td style="color:#FF6D00; font-weight:bold">{{this.Periodo1}}</td>
+          <td>{{this.NotaAC2}}</td>
+          <td>{{this.NotaAI2}}</td>
+          <td>{{this.NotaEX2}}</td>
+          <td style="color:#FF6D00; font-weight:bold">{{this.Periodo2}}</td>
+          <td>{{this.NotaAC3}}</td>
+          <td>{{this.NotaAI3}}</td>
+          <td>{{this.NotaEX3}}</td>
+          <td style="color:#FF6D00; font-weight:bold">{{this.Periodo3}}</td>
+          <td style="color:#ff0400; font-weight:bold">{{this.Prom}}</td>
 
           <td> 
             <a href="/notas1/{{this._id}}" aria-pressed="true">

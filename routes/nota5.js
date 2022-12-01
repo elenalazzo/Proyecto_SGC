@@ -36,10 +36,49 @@ function newNota5(req, res) {
     nota5.NotaAC = req.body.NotaAC;
     nota5.NotaAI = req.body.NotaAI;
     nota5.NotaEX = req.body.NotaEX;
+    nota5.Periodo1 = req.body.Periodo1;
+    nota5.NotaAC2 = req.body.NotaAC2;
+    nota5.NotaAI2 = req.body.NotaAI2;
+    nota5.NotaEX2 = req.body.NotaEX2;
+    nota5.Periodo2 = req.body.Periodo2;
+    nota5.NotaAC3 = req.body.NotaAC3;
+    nota5.NotaAI3 = req.body.NotaAI3;
+    nota5.NotaEX3 = req.body.NotaEX3;
+    nota5.Periodo3 = req.body.Periodo3;
     nota5.Prom = req.body.Prom;
-    nota5.Prom = ` ${((nota5.NotaAC + nota5.NotaAI + nota5.NotaEX)/3).toFixed(2)}`;
+    nota5.Periodo1 = ` ${((nota5.NotaAC + nota5.NotaAI + nota5.NotaEX)/3).toFixed(2)}`;
     nota5.save((err) => {
-        if(!err){
+        if (!err){
+            res.redirect("notas5/listNotas5");
+        }
+        else {
+            console.log("Se ha producido un error");
+        }
+    });
+
+    nota5.Periodo2 = ` ${((nota5.NotaAC2 + nota5.NotaAI2 + nota5.NotaEX2)/3).toFixed(2)}`;
+    nota5.save((err) => {
+        if (!err){
+            res.redirect("notas5/listNotas5");
+        }
+        else {
+            console.log("Se ha producido un error");
+        }
+    });
+
+    nota5.Periodo3 = ` ${((nota5.NotaAC3 + nota5.NotaAI3 + nota5.NotaEX3)/3).toFixed(2)}`;
+    nota5.save((err) => {
+        if (!err){
+            res.redirect("notas5/listNotas5");
+        }
+        else {
+            console.log("Se ha producido un error");
+        }
+    });
+
+    nota5.Prom = ` ${((nota5.Periodo1 + nota5.Periodo2 + nota5.Periodo3)/3).toFixed(2)}`;
+    nota5.save((err) => {
+        if (!err){
             res.redirect("notas5/listNotas5");
         }
         else {

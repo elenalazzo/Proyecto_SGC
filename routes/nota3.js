@@ -36,10 +36,49 @@ function newNota3(req, res) {
     nota3.NotaAC = req.body.NotaAC;
     nota3.NotaAI = req.body.NotaAI;
     nota3.NotaEX = req.body.NotaEX;
+    nota3.Periodo1 = req.body.Periodo1;
+    nota3.NotaAC2 = req.body.NotaAC2;
+    nota3.NotaAI2 = req.body.NotaAI2;
+    nota3.NotaEX2 = req.body.NotaEX2;
+    nota3.Periodo2 = req.body.Periodo2;
+    nota3.NotaAC3 = req.body.NotaAC3;
+    nota3.NotaAI3 = req.body.NotaAI3;
+    nota3.NotaEX3 = req.body.NotaEX3;
+    nota3.Periodo3 = req.body.Periodo3;
     nota3.Prom = req.body.Prom;
-    nota3.Prom = ` ${((nota3.NotaAC + nota3.NotaAI + nota3.NotaEX)/3).toFixed(2)}`;
+    nota3.Periodo1 = ` ${((nota3.NotaAC + nota3.NotaAI + nota3.NotaEX)/3).toFixed(2)}`;
     nota3.save((err) => {
-        if(!err){
+        if (!err){
+            res.redirect("notas3/listNotas3");
+        }
+        else {
+            console.log("Se ha producido un error");
+        }
+    });
+
+    nota3.Periodo2 = ` ${((nota3.NotaAC2 + nota3.NotaAI2 + nota3.NotaEX2)/3).toFixed(2)}`;
+    nota3.save((err) => {
+        if (!err){
+            res.redirect("notas3/listNotas3");
+        }
+        else {
+            console.log("Se ha producido un error");
+        }
+    });
+
+    nota3.Periodo3 = ` ${((nota3.NotaAC3 + nota3.NotaAI3 + nota3.NotaEX3)/3).toFixed(2)}`;
+    nota3.save((err) => {
+        if (!err){
+            res.redirect("notas3/listNotas3");
+        }
+        else {
+            console.log("Se ha producido un error");
+        }
+    });
+
+    nota3.Prom = ` ${((nota3.Periodo1 + nota3.Periodo2 + nota3.Periodo3)/3).toFixed(2)}`;
+    nota3.save((err) => {
+        if (!err){
             res.redirect("notas3/listNotas3");
         }
         else {
