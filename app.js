@@ -107,6 +107,12 @@ mongoose.connect('mongodb://localhost:27017/Students02', {useNewUrlParser:true, 
 require("./models/notas1");
 require("./models/notas2");
 require("./models/notas3");
+require("./models/notas4");
+require("./models/notas5");
+require("./models/notas6");
+require("./models/notas7");
+require("./models/notas8");
+require("./models/notas9");
 
 // error handler
 app.use(function(err, req, res, next) {

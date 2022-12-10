@@ -1,6 +1,7 @@
 // importar las dependencias
 const express = require('express');
 const mongoose = require('mongoose');
+const csv = require('csv-express');
 let router = express.Router();
 
 //llamado al modelo
@@ -86,6 +87,29 @@ function newNota6(req, res) {
         }
     });
 }
+
+//Metodo de exportacion a excel
+router.get('/', function(req, res, next) {
+    Notas6.find({}, function(err, nota6) {
+        if (err)
+          res.send(err);
+
+        res.render('notas6/listNotas6', { title: '', nota6: nota6 });
+    });
+ });
+
+ router.get('/Excelnotas6', function(req, res, next) {
+    const filename   = "CalificacionesSextoGrado.csv";
+    var dataArray;
+    Notas6.find().lean().exec({}, function(err, nota6) {
+        if (err) res.send(err);
+        
+        res.statusCode = 200;
+        res.setHeader('Content-Type', 'text/csv');
+        res.setHeader("Content-Disposition", 'attachment; filename='+filename);
+        res.csv(nota6, true);
+    });
+ });
 
 //metodo para actualizar
 function updateNota6(req, res) {

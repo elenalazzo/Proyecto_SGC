@@ -1,6 +1,7 @@
 // importar las dependencias
 const express = require('express');
 const mongoose = require('mongoose');
+const csv = require('csv-express');
 let router = express.Router();
 
 //llamado al modelo
@@ -86,6 +87,29 @@ function newNota9(req, res) {
         }
     });
 }
+
+//Metodo de exportacion a excel
+router.get('/', function(req, res, next) {
+    Notas9.find({}, function(err, nota9) {
+        if (err)
+          res.send(err);
+
+        res.render('notas9/listNotas9', { title: '', nota9: nota9 });
+    });
+ });
+
+ router.get('/Excelnotas9', function(req, res, next) {
+    const filename   = "CalificacionesNovenoGrado.csv";
+    var dataArray;
+    Notas9.find().lean().exec({}, function(err, nota9) {
+        if (err) res.send(err);
+        
+        res.statusCode = 200;
+        res.setHeader('Content-Type', 'text/csv');
+        res.setHeader("Content-Disposition", 'attachment; filename='+filename);
+        res.csv(nota9, true);
+    });
+ });
 
 //metodo para actualizar
 function updateNota9(req, res) {

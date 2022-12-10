@@ -1,6 +1,7 @@
 // importar las dependencias
 const express = require('express');
 const mongoose = require('mongoose');
+const csv = require('csv-express');
 let router = express.Router();
 
 //llamado al modelo
@@ -86,6 +87,29 @@ function newNota4(req, res) {
         }
     });
 }
+
+//Metodo de exportacion a excel
+router.get('/', function(req, res, next) {
+    Notas4.find({}, function(err, nota4) {
+        if (err)
+          res.send(err);
+
+        res.render('notas4/listNotas4', { title: '', nota4: nota4 });
+    });
+ });
+
+ router.get('/Excelnotas4', function(req, res, next) {
+    const filename   = "CalificacionesCuartoGrado.csv";
+    var dataArray;
+    Notas4.find().lean().exec({}, function(err, nota4) {
+        if (err) res.send(err);
+        
+        res.statusCode = 200;
+        res.setHeader('Content-Type', 'text/csv');
+        res.setHeader("Content-Disposition", 'attachment; filename='+filename);
+        res.csv(nota4, true);
+    });
+ });
 
 //metodo para actualizar
 function updateNota4(req, res) {

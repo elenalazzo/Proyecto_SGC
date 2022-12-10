@@ -1,6 +1,7 @@
 // importar las dependencias
 const express = require('express');
 const mongoose = require('mongoose');
+const csv = require('csv-express');
 let router = express.Router();
 
 //llamado al modelo
@@ -86,7 +87,28 @@ function newNota5(req, res) {
         }
     });
 }
+//Metodo de exportacion a excel
+router.get('/', function(req, res, next) {
+    Notas5.find({}, function(err, nota5) {
+        if (err)
+          res.send(err);
 
+        res.render('notas5/listNotas5', { title: '', nota5: nota5 });
+    });
+ });
+
+ router.get('/Excelnotas5', function(req, res, next) {
+    const filename   = "CalificacionesQuintoGrado.csv";
+    var dataArray;
+    Notas5.find().lean().exec({}, function(err, nota5) {
+        if (err) res.send(err);
+        
+        res.statusCode = 200;
+        res.setHeader('Content-Type', 'text/csv');
+        res.setHeader("Content-Disposition", 'attachment; filename='+filename);
+        res.csv(nota5, true);
+    });
+ });
 //metodo para actualizar
 function updateNota5(req, res) {
     Notas5.findOneAndUpdate({_id: req.body._id}, req.body, {new: true}, (err, doc) => {
