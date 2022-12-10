@@ -100,10 +100,13 @@ app.use(function(req, res, next) {
   next(createError(404));
 });
 
+mongoose.Promise = global.Promise;
 mongoose.connect('mongodb://localhost:27017/Students02', {useNewUrlParser:true, useUnifiedTopology:true})
 .then(() => console.log("Se establecio conexion a mongodb"))
-.catch((e) => console.log("Error", e))
-
+.catch((e) => console.log("Error", e));
+require("./models/notas1");
+require("./models/notas2");
+require("./models/notas3");
 
 // error handler
 app.use(function(err, req, res, next) {

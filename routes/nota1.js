@@ -1,6 +1,7 @@
 // importar las dependencias
 const express = require('express');
 const mongoose = require('mongoose');
+const csv = require('csv-express');
 let router = express.Router();
 
 //llamado al modelo
@@ -95,6 +96,29 @@ function newNota1 (req, res) {
     
 }
 
+//Metodo de exportacion a excel
+router.get('/', function(req, res, next) {
+    Notas1.find({}, function(err, nota1) {
+        if (err)
+          res.send(err);
+
+        res.render('notas1/listNotas1', { title: '', nota1: nota1 });
+    });
+ });
+
+ router.get('/Excelnotas1', function(req, res, next) {
+    const filename   = "CalificacionesPrimerGrado.csv";
+    var dataArray;
+    Notas1.find().lean().exec({}, function(err, nota1) {
+        if (err) res.send(err);
+        
+        res.statusCode = 200;
+        res.setHeader('Content-Type', 'text/csv');
+        res.setHeader("Content-Disposition", 'attachment; filename='+filename);
+        res.csv(nota1, true);
+    });
+ });
+
 //Funcion para actualizar notas
 /** @function
  * @name ActualizarNotas*/
@@ -152,25 +176,6 @@ router.get('/delete/:id', (req, res) => {
     })
 }) 
 
-//Promediar
-router.post('/listNotas1', function(req, res){
-  let NotaAC = parseFloat(req.body.NotaAC) || 0;
-  let NotaAI = parseFloat(req.body.NotaAI) || 0;
-  let NotaEX = parseFloat(req.body.NotaEX) || 0;
-  let Prom = '';
-  Prom = ` ${((NotaAC + NotaAI + NotaEX)/3)}`;
-
-    let viewData2 = {
-        NotaAC,
-        NotaAI,
-        NotaEX,
-        Prom
-      }
-      res.render('notas1', viewData2);
-
-
-
-})
 
 
 module.exports = router;

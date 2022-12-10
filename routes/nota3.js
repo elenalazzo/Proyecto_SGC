@@ -87,6 +87,29 @@ function newNota3(req, res) {
     });
 }
 
+//Metodo de exportacion a excel
+router.get('/', function(req, res, next) {
+    Notas3.find({}, function(err, nota3) {
+        if (err)
+          res.send(err);
+
+        res.render('notas3/listNotas3', { title: '', nota3: nota3 });
+    });
+ });
+
+ router.get('/Excelnotas3', function(req, res, next) {
+    const filename   = "CalificacionesTercerGrado.csv";
+    var dataArray;
+    Notas3.find().lean().exec({}, function(err, nota3) {
+        if (err) res.send(err);
+        
+        res.statusCode = 200;
+        res.setHeader('Content-Type', 'text/csv');
+        res.setHeader("Content-Disposition", 'attachment; filename='+filename);
+        res.csv(nota3, true);
+    });
+ });
+
 //metodo para actualizar
 function updateNota3(req, res) {
     Notas3.findOneAndUpdate({_id: req.body._id}, req.body, {new: true}, (err, doc) => {
