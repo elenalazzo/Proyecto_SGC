@@ -28,8 +28,42 @@
 
   <center><h1 style=" color:#0D1E96; margin-bottom:5%; " class="mb-4">{{viewTitle}}</h1></center>
   <div class="row justify-content-md-center" style="font-size:larger;">
-  <div class="col-md-4" style="margin-top: ;">
-    <form action="/apuntes" method="post">
+  <div class="col-md-4 mx-auto" style="margin-top: ;">
+
+    <p></p>
+      <div class="card text-center">
+        
+        <div class="card-body">
+          <form action="/apuntes" method="post">
+            <input type="hidden" name="_id" value="{{apunte._id}}">
+            <div class="form-group" style=" color:#0D1E96">
+              <strong>Titulo</strong> 
+              <input type="text" name="Titulo" id="Titulo"  class="form-control" placeholder="Escriba el titulo" style="background-color:#c6d8ff; border-color:#F3F5F9; color:#0D1E96" value="{{apunte.Titulo}}" required>
+            </div>
+            <br>
+            <div class="form-group" style="color:#0D1E96">
+                <strong>Fecha</strong> 
+              <input type="date" name="Fecha" id="Fecha"  class="form-control" style="background-color:#c6d8ff; border-color:#F3F5F9; color:#0D1E96" value="{{apunte.Fecha}}" required>
+            </div>
+            <br>
+            <div class="form-group" style="color:#0D1E96">
+                <strong>Descripcion</strong> 
+              <textarea type="text" name="Descripcion" id="Descripcion"  class="form-control" placeholder="Contenido del apunte"  style="background-color:#c6d8ff; border-color:#F3F5F9; color:#0D1E96"  required>{{apunte.Descripcion}}</textarea>
+            </div>
+            <br>
+            
+            <div class="form-group d-grid gap-2">
+              <button class="btn btn-primary">Guardar</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    
+
+
+
+
+    <!--form action="/apuntes" method="post">
       <input type="hidden" name="_id" value="{{apunte._id}}">
        <div class="form-group" style=" color:#0D1E96">
          <strong>Titulo</strong> 
@@ -47,7 +81,7 @@
        </div>
        <br>
      <center><strong><button type="submit" class="btn btn-lg" style="background-color:#0D1E96;color:#ffffff">Guardar</button></strong></center>
-    </form>
+    </form-->
 </div>
 
 </div>

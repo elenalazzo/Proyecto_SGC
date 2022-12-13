@@ -22,7 +22,7 @@
 </style>
 
 <div class="content contenedor-icono1">
-   <a type="button"  href="/agenda" style=" margin-top:10px; margin-left:20px; border-radius:50px;" class="btn btn-default btn-circle btn-xl"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left-circle-fill" viewBox="0 0 16 16">
+   <a type="button"  href="/agenda" style=" margin-top:20px; margin-left:20px; border-radius:50px;" class="btn btn-default btn-circle btn-xl"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-arrow-left-circle-fill" viewBox="0 0 16 16">
     <path d="M8 0a8 8 0 1 0 0 16A8 8 0 0 0 8 0zm3.5 7.5a.5.5 0 0 1 0 1H5.707l2.147 2.146a.5.5 0 0 1-.708.708l-3-3a.5.5 0 0 1 0-.708l3-3a.5.5 0 1 1 .708.708L5.707 7.5H11.5z"/>
     </svg></a>    
 
@@ -36,16 +36,46 @@
 
 <div class="position-relative">
   <div class="position-absolute top-0 start-100 translate-middle">
-    <div class="contenedor-icono" style="margin-right:380px; margin-top: 1px;">
+    <div class="contenedor-icono" style="margin-right:310px; margin-top: -81px;">
     <a type="button" href="/apuntes" class="btn btn-default btn-circle btn-xl">
-    <svg style="color:#0D1E96;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
+    <svg style="color:#FF6D00;" xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-plus-circle-fill" viewBox="0 0 16 16">
       <path d="M16 8A8 8 0 1 1 0 8a8 8 0 0 1 16 0zM8.5 4.5a.5.5 0 0 0-1 0v3h-3a.5.5 0 0 0 0 1h3v3a.5.5 0 0 0 1 0v-3h3a.5.5 0 0 0 0-1h-3v-3z"/>
     </svg></a>   
     </div>
   </div>
 </div>
 
-<div class="row justify-content-md-center">
+<div class="row row-cols-3 row-cols-md-2 g-4 justify-content-md-center">
+  {{#each list}}
+    <div class="col-md-5">
+      <div class="card">
+        <div class="card-body">
+          <h4 class="card-title d-flex justify-content-between align-items-center">{{this.Titulo}} <a href="/apuntes/{{this._id}}" aria-pressed="true">
+            <svg style="color:#0D1E96;" xmlns="http://www.w3.org/2000/svg" width="10" height="10" fill="currentColor" class="bi bi-pencil-fill" viewBox="0 0 30 20" style="margin-left: 10px;">
+            <path d="M12.854.146a.5.5 0 0 0-.707 0L10.5 1.793 14.207 5.5l1.647-1.646a.5.5 0 0 0 0-.708l-3-3zm.646 6.061L9.793 2.5 3.293 9H3.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.207l6.5-6.5zm-7.468 7.468A.5.5 0 0 1 6 13.5V13h-.5a.5.5 0 0 1-.5-.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.5-.5V10h-.5a.499.499 0 0 1-.175-.032l-.179.178a.5.5 0 0 0-.11.168l-2 5a.5.5 0 0 0 .65.65l5-2a.5.5 0 0 0 .168-.11l.178-.178z"/>
+            </svg></a></h4>
+          <h6>{{this.Fecha}}</h6>
+          <p>{{this.Descripcion}}</p>
+          <!--form action="/apuntes/delete/{{this._id}}" method="post">
+            <button type="submit" class="btn btn-danger btn-block btn-sm">Eliminar</button>
+          </form-->
+          <div class="d-grid gap-2">
+          <a href="/apuntes/delete/{{this._id}}"
+              onclick="return confirm('¿Esta seguro de eliminar?');"
+              class="btn btn-danger btn-sm" style="background:#ff0000; color:#ffffff" role="button" aria-pressed="true">Borrar</a>
+              </div>
+        </div>
+      </div>
+
+    </div>
+  {{/each}}
+  <br>
+</div>
+
+
+
+
+<!--div class="row justify-content-md-center">
   <div class="col-md-8">
         <table  class="table table-hover" style="background:#F5F6FF; color:#0D1E96; font-size:large;" >
       <thead>
@@ -80,4 +110,4 @@
 
 
   </div>
-</div>
+</div-->

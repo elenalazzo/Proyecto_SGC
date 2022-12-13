@@ -94,6 +94,30 @@ router.get('/:id', (req, res) => {
     })
 })
 
+//Metodo de exportacion a excel
+router.get('/', function(req, res, next) {
+    Estudiantes.find({}, function(err, estudiante) {
+        if (err)
+          res.send(err);
+
+        res.render('/estudiantes/listEstudiantes', { title: '', estudiante: estudiante });
+    });
+ });
+
+ router.get('/Excelestudiantes', function(req, res, next) {
+    const filename   = "EstudiantesPrimerGrado.csv";
+    var dataArray;
+    Estudiantes.find().lean().exec({}, function(err, estudiante) {
+        if (err) res.send(err);
+        
+        res.statusCode = 200;
+        res.setHeader('Content-Type', 'text/csv');
+        res.setHeader("Content-Disposition", 'attachment; filename='+filename);
+        res.csv(estudiante, true);
+    });
+ });
+
+
 router.get('/delete/:id', (req, res) => {
     Estudiantes.findByIdAndRemove(req.params.id, (err, docs) => {
         if(!err){

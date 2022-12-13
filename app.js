@@ -113,6 +113,15 @@ require("./models/notas6");
 require("./models/notas7");
 require("./models/notas8");
 require("./models/notas9");
+require("./models/estudiantes");
+require("./models/estudiantes2");
+require("./models/estudiantes3");
+require("./models/estudiantes4");
+require("./models/estudiantes5");
+require("./models/estudiantes6");
+require("./models/estudiantes7");
+require("./models/estudiantes8");
+require("./models/estudiantes9");
 
 // error handler
 app.use(function(err, req, res, next) {
