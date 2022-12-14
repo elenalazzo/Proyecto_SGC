@@ -1,6 +1,7 @@
 // importar las dependencias
 const express = require('express');
 const mongoose = require('mongoose');
+const csv = require('csv-express');
 let router = express.Router();
 
 //llamado al modelo
@@ -100,7 +101,7 @@ router.get('/', function(req, res, next) {
         if (err)
           res.send(err);
 
-        res.render('/estudiantes/listEstudiantes', { title: '', estudiante: estudiante });
+        res.render('/estudiante/listEstudiantes', { title: '', estudiante: estudiante });
     });
  });
 
